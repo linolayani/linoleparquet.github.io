@@ -36,29 +36,18 @@ AOS.init({
   // Scrollax
   $.Scrollax();
 
-  // Burger Menu
-  var burgerMenu = function () {
-    $("body").on("click", ".js-fh5co-nav-toggle", function (event) {
-      event.preventDefault();
-
-      if ($("#ftco-nav").is(":visible")) {
-        $(this).removeClass("active");
-      } else {
-        $(this).addClass("active");
-      }
-    });
-  };
-  burgerMenu();
-
   var onePageClick = function () {
     $(document).on("click", '#ftco-nav a[href^="#"]', function (event) {
       event.preventDefault();
 
-      var href = $.attr(this, "href");
+      $("#ftco-nav").collapse("hide");
+      var href = $(this).attr("href");
+      var offset = $(href).offset().top;
 
+      console.log(href + ": " + offset);
       $("html, body").animate(
         {
-          scrollTop: $($.attr(this, "href")).offset().top - 70,
+          scrollTop: offset,
         },
         500,
         function () {
@@ -121,10 +110,6 @@ AOS.init({
     }
   );
 
-  $("#dropdown04").on("show.bs.dropdown", function () {
-    console.log("show");
-  });
-
   // scroll
   var scrollWindow = function () {
     $(window).scroll(function () {
@@ -177,7 +162,6 @@ AOS.init({
           $(".number").each(function () {
             var $this = $(this),
               num = $this.data("number");
-            console.log(num);
             $this.animateNumber(
               {
                 number: num,
