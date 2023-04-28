@@ -34,24 +34,28 @@ AOS.init({
   loader();
 
   var onePageClick = function () {
-    $(document).on("click", '#ftco-nav a[href^="#"]', function (event) {
-      event.preventDefault();
+    $(document).on(
+      "click",
+      '#ftco-nav a[href^="#"], .ftco-link',
+      function (event) {
+        event.preventDefault();
 
-      $("#ftco-nav").collapse("hide");
-      var href = $(this).attr("href");
-      var offset = $(href).offset().top;
+        $("#ftco-nav").collapse("hide");
+        var href = $(this).attr("href");
+        var offset = $(href).offset().top;
 
-      console.log(href + ": " + offset);
-      $("html, body").animate(
-        {
-          scrollTop: offset,
-        },
-        500,
-        function () {
-          // window.location.hash = href;
-        }
-      );
-    });
+        console.log(href + ": " + offset);
+        $("html, body").animate(
+          {
+            scrollTop: offset,
+          },
+          500,
+          function () {
+            // window.location.hash = href;
+          }
+        );
+      }
+    );
   };
 
   onePageClick();
