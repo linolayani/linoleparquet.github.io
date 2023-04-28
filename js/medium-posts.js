@@ -85,8 +85,6 @@ const getTextToCard = async () => {
             <a href="${link}">${title}</a>
           </h3>
           <p>
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
           </p>
         </div>
       </div>`;
