@@ -67,6 +67,8 @@ AOS.init({
       margin: 0,
       animateOut: "fadeOut",
       animateIn: "fadeIn",
+      mouseDrag: false, // https://github.com/OwlCarousel2/OwlCarousel2/issues/2143#issuecomment-348480670
+      touchDrag: true, // https://github.com/OwlCarousel2/OwlCarousel2/issues/2143#issuecomment-348480670
       nav: false,
       autoplayHoverPause: false,
       items: 1,
