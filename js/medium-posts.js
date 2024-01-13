@@ -15,35 +15,15 @@ export const getMediumData = async () => {
   }
 };
 
-const getSingleText = async () => {
-  const posts = await getMediumData();
-  const post = posts.items[1]; // latest text (0 to 9)
-  const title = post.title;
-  const pubDate = post.pubDate;
-  const link = post.link;
-  const author = post.author;
-  const content = post.content;
+const getThumbnailUrl = (content) => {
+  const regex = /<img[^>]*src="([^"]*)"[^>]*>/;
+  const match = content.match(regex);
 
-  const newText = document.createElement("div");
-  newText.className = "text";
-  newText.innerHTML = `<h1>${title}</h1>
-    <a href="${link}"><h2>Published ${pubDate} by ${author}</h2></a>
-    ${content}`;
-
-  $text.appendChild(newText);
-};
-
-const getLatestTextsList = async () => {
-  const posts = await getMediumData();
-  for (let post of posts.items) {
-    const newItem = document.createElement("li");
-    const title = post.title;
-    const link = post.link;
-    const thumbnail = post.thumbnail;
-
-    newItem.innerHTML = `<img src="${thumbnail}" alt=""><a href="${link}"><h3>${title}</h3></a>`;
-
-    $textList.appendChild(newItem);
+  if (match && match[1]) {
+    const imageUrl = match[1];
+    return imageUrl;
+  } else {
+    console.log("Image URL not found in the string.");
   }
 };
 
@@ -59,7 +39,7 @@ const getTextToCard = async () => {
 
     const title = post.title;
     const link = post.link;
-    const thumbnail = post.thumbnail;
+    const thumbnail = getThumbnailUrl(post.content);
     const pubDate = post.pubDate;
 
     // formatDate
