@@ -1,7 +1,10 @@
-+++
-title = 'Interview Question 1'
-date = 2024-01-25T12:29:21-06:00
-+++
+---
+title: Interview Question 1
+date: 2024-01-25T12:29:21-06:00
+draft: true
+---
+
+Networking Question: You're on a LAN with IP 10.0.10.20, you browse to a website at https://test.website.com (10.0.20.5), describe what happens?
 
 I got this question asked for an interview, and I though it's a good starting point to discover IP addresses, submasks, gateway and so on.
 
