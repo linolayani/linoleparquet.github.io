@@ -5,7 +5,7 @@ tags: ["Kubernetes", "Labels", "Annotations", "Cloud"]
 author: "Lino Layani"
 draft: false
 
-description: ""
+description: "The difference between Kubernetes Labels and Annotation can be misleading at first. Both are metadata attached to a pod, but serve different purposes."
 
 disableShare: false
 searchHidden: false
@@ -18,13 +18,7 @@ cover:
   hidden: false # only hide on current single page
 ---
 
-The difference between Kubernetes Labels and Annotation can be misleading at first. Both are metadata attached to a pod, but serve different purposes.
-
 <!--more-->
-
----
-
-# Kubernetes Labels and Annotations: Which one to use when ?
 
 > **TL;DR**  
 > Labels are **identifying** information intended to be read by Kubernetes.  
@@ -38,16 +32,53 @@ Let’s look at the official definition:
 
 > _Labels are key/value pairs that are attached to objects, such as pods. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of objects._
 
-Labels are at the heart of Kubernetes objects relationship. Those pieces of information are used by the Kubernetes engine to link, group, and recognise objects.
+Labels are at **the heart of the relationship between Kubernetes objects**. These pieces of information are used by the Kubernetes engine to link, group, and recognize objects.
 
 To illustrate that, let’s run a simple nginx pod and expose it:  
 `kubectl run nginx --image nginx --expose --port=80 --dry-run=client -o=yaml`
 
-Here, the service is redirecting the incoming requests to the pod because the pod’s label is matching the service’s selector.  
-If we create a new pod with the label `run=nginx` , the service will load balance the incoming requests between those two pods.
+```yaml {linenos=true,hl_lines=[12,23]}
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: nginx
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    run: nginx
+status:
+  loadBalancer: {}
+---
 
-This is the same mechanism that link a Deployment to a ReplicaSet , or a ReplicaSet to a Pod. And it’s the same mechanism behind nodes toleration or Quality of Service eviction, just to name a few.  
-Labels are also used by others applications, such as Helm, to identify the objects he created — and delete them in case of a rollback.  
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+    - image: nginx
+      name: nginx
+      ports:
+        - containerPort: 80
+      resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+```
+
+Here, **labels are the reason why the service redirects incoming requests to the pod**. The service redirects incoming traffic to every pod matching his selector. The pod is labeled `run=nginx`, which matches the service's selector.  
+If a pod is created with the same label, the service will load balance the incoming requests between these two pods.
+
+The same mechanism define the relationship between a Deployment and a ReplicaSet, or a ReplicaSet and a Pod. And it’s the same mechanism behind nodes toleration or Quality of Service eviction, just to name a few.  
+Labels are also used by other applications, such as Helm, to identify the objects he created — and delete them in case of a rollback.  
 That’s the magic behind labels.
 
 ---
@@ -59,7 +90,7 @@ Let’s look at the official documentation:
 > _You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects. Clients such as tools and libraries can retrieve this metadata._
 
 Annotation, are also key/values pairs.  
-On the other hands those are not used by Kubernetes internally. Annotation are meant to contain non-identifying metadata. It can contain raw information for the people running the cluster, such as which team is taking care of the service.
+On the other hands these are not used by Kubernetes internally. Annotation are meant to contain non-identifying metadata. It usually contain raw information destined to the cluster administrator and users, such as the name of the team running the service.
 
 `kubectl annotate pod nginx really_imporant_info=’Mr X really really like this pod. Do not delete it otherwise he be heartbroken.’`
 
@@ -69,13 +100,11 @@ It can also contain configuration information meant to be interpreted by a speci
 
 ## Conclusion
 
-So, which one should you use ? Well it depends on your use-case:  
-If you want to create relationship between Kubernetes objects, labels is the way to go.  
-If you want to write non-technical information attached to a Kubernetes Object, or to leverage an option of a tool, annotation is going to serve you better.
+So, which one should you use? Well, it depends on your use case:  
+If you want to create **relationships between Kubernetes objects**, **labels** are the way to go.  
+If you want to write **non-technical information** attached to a Kubernetes object or leverage an **option of a tool**, **annotations** will serve you better.
 
 ---
 
-I hope this was useful, feel free to leave a comment in case you have any questions.
-
-Thank you for taking the time to read my article. If you’re as passionate about cloud technology as I am, make sure to check out my other article or follow me on Medium.  
+Thank you for taking the time to read my article. If you’re as passionate about cloud technology as I am, make sure to check out my other article.
 I‘m always sharing new insights and information, and I’d love to have you along for the journey!
