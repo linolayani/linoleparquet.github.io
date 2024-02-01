@@ -23,25 +23,38 @@ images:
 
 ---
 
+## What is a service ?
+
+Pods get assigned an internal IP adress at their creation. Client within the cluster can reach the pod on their internal IP adress.  
+But pods are ephemeral: An unhealty pod with certain IP adress might be replaced by a pod with a different IP address. The internal IP address isn't a reliable option  
+That's the issue a service attend to resolve: provide a reliable address to reach pods.
+
 ## ClusterIP
 
-This type of service exposes the application **within the cluster only**, allowing it to be accessed by other applications within the same cluster.  
-This is useful for applications that do not need to be accessed externally, or for applications that are part of a larger system where the other components are also within the cluster.
+ClusterIP type is the **default** type. It exposes the service on a **cluster-internal IP**. Only client within the cluster are able to access this service. Clients outside of the cluster cannot reach it, which can be desirable for security purpose.
 
----
+![image](./images/clusterip.png#center)
 
 ## LoadBalancer
 
 This type of service exposes the application to **external traffic** through a load balancer provided by the cloud provider.  
 It’s the most used service overall. This is a more **advanced** and **scalable** way to expose an application, as it provides **load balancing and high availability**, but it may require additional configuration and resources.
 
+![image](./images/loadbalancer.png#center)
+
 ---
 
 ## NodePort
 
-This type of service exposes a **specific port** on **each node** of the Kubernetes cluster, allowing external traffic to access the application through any of the nodes. This is a **simple** and **straightforward** way to expose an application, but it does **not provide load balancing or high availability**.
+NodePort exposes the Service on each Node's IP at a static port. It is the most primitive way to get external traffic directly to your service. This is a **simple** and **straightforward** way to expose an application, but it does **not provide load balancing or high availability**.
+
+![image](./images/nodeport.png#center)
 
 ---
+
+## ExternalName
+
+ExternalName map a Service to a DNS name. This allows to consider an external ressource as an internal one, and appreciate Kubernetes built in ressource mapping using selectors and tags.
 
 ## Conclusion
 
