@@ -27,15 +27,14 @@ images:
 
 ## Step 1: Deploy a simple application: Nginx
 
-Let's deploy the simplest frontend service ever: nginx.
-To do so, run these two commands:
+Let’s deploy nginx. To do so, run these two commands:
 
 ```bash
 kubectl create deployment nginx --image nginx --port 80
 kubectl expose deployment nginx
 ```
 
-If you don’t like the imperative approach, you can apply the following manifest:
+If you don’t like the imperative approach, you can apply this manifest:
 
 ```yaml
 apiVersion: apps/v1
@@ -80,7 +79,7 @@ spec:
 
 ---
 
-## Step 2: Test that the service deployed respond properly
+## Step 2: Test the deployed service
 
 Run the following command in the terminal:  
 `kubectl run tmp --image nginx --rm -i --restart=Never -- curl 'nginx:80'`
@@ -96,19 +95,19 @@ We reach the deployed nginx service, and get the index.html page deployed on the
 We ran a pod called tmp with the following options:
 
 - `--image nginx`  
-  The pod’s image. Here we use `nginx` be we could use whatever image which has curl installed.
+  Pod image to run. We use `nginx` here, but any image containing curl will do the trick.
 - `--rm`  
-  This options delete the pod after it exit. This option is the reason why the pod is temporary.
+  Delete the pod after it exit. This is the reason why the pod is temporary.
 - `-i`  
   This option keep stdin open on the container in the pod.
 - `--restart=Never`  
-  The `RestartPolicy` of the pod: we specify `Never`. Meaning that wheter the pod success of fail, the pod get deleted at the end.
-  It’s not mandatory, but highly recommended: If you don’t set the `RestartPolicy` to `Never` and make a mistake on your command, the pod will exit with an error and restart. Until he reach the `CrashLoopBackOff` state, and you will have to delete it manually.
+  `RestartPolicy` of the pod: we specify `Never`. Meaning that wheter the pod successed of failed, it get deleted at the end.
+  It’s not mandatory, but highly recommended: If `RestartPolicy` isn't set to `Never` it will be set to his default value, `Always`. If there is a mistake on your command, like a silly typo, the pod will restart until he reach the `CrashLoopBackOff` state, and you will have to delete it manually, making you loose precious seconds.
 - `-- curl 'nginx:80'`  
-  The argument you pass to the nginx container.  
-  We call the curl binairy, and specify the service and the port we want to reach.  
-  Here I rely on [Kubernetes DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) to reach the nginx service. But we can put the IP address instead.  
-  To get the IP adress of a service, simply type `kubectl get svc`. In my case the IP adress is`172.17.0.4` so the command become `curl '172.17.0.4:80';`
+  Argument passed to the container.  
+  We call the curl binairy, specifying the service and the port we want to reach.  
+  Here I rely on [Kubernetes DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) to reach the nginx service. Another option is to write the IP address directly.  
+  To get the IP adress of a service, type `kubectl get svc`. In my case the IP adress is`172.17.0.4` so the command become `curl '172.17.0.4:80';`
   To get the IP address of a pod, type `kubectl get pods -o wide`
 
 ---
