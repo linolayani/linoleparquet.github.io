@@ -4,55 +4,47 @@ author: Lino Layani
 date: 2024-01-25T12:29:21-06:00
 tags: ["interview", "networking"]
 
-description: toto
-summary: tata
+description: Let's decompose a common interview question
+summary: You're on a LAN with IP `10.0.10.20`, you browse to a website at `https://test.website.com` (`10.0.20.5`), describe what happens.
+
+cover:
+  image: "/posts/what-happens-when-you-type-test.webiste.com-in-your-browser/images/thumbnail.jpg"
+  alt: "What happens when you type test.webiste.com in your browser ?"
+  # caption: "" # display caption under cover
+  relative: false # when using page bundles set this to true
+  hidden: false # only hide on current single page
 ---
 
-Common interview question: You're on a LAN with IP `10.0.10.20`, you browse to a website at `https://test.website.com` (`10.0.20.5`), describe what happens.
+You're on a LAN with IP `10.0.10.20`. You browse to a website at `https://test.website.com` (`10.0.20.5`). Describe what happens.
 
-This is a open question. There is no good nor bad answers and **multiple layers of understanding**. For the purpose of this article, I will present 3 layers of comprehensions.
+This is a open question. There is no good nor bad answers, and **multiple layers of understanding**. For the purpose of this article, I will introduce three levels of comprehension.
 
 ---
 
-## Level 1: The newbie
-
-Knowledge:
-
-- Web Server Processing
-- Client Side Rendering
+## First layer
 
 ### Web Server Processing
 
-What means **browsing tot the website https://test.website.com** in **technical terms**?
-Your browser request to **render the webpage** hosted on the URL `https://test.website.com`. The webserver at this domain **receives the HTTP request** and **processes it**. It retrieves the requested resource, in this case, the homepage of `https://test.website.com`.
+What means **browsing to the website https://test.website.com** in **technical terms**?
+Your browser request to **render the webpage** hosted on the URL `https://test.website.com`. The webserver at this domain **receives the HTTP request** and **processes it**. It retrieves the requested resource, in this case the homepage.
 
-Note: Most webservers define the **index.html** file as their homepage.
+> Note: Most webservers define the **index.html** file as their homepage.
 
 ### Client Side Rendering
 
-The homepage is downloaded on the your browser. Most of the time, this html page has **dependencies** under the form of link and script. Commons dependencies are a **styling css file, a javascript script and javascript libraries**. At the rendering of the html file, theses dependencies are downloaded.
+The homepage is downloaded on the your browser. Most of the time, this html page has **dependencies** under the form of link and script. Commons dependencies are a **stylesheets, scripts or images**. At the rendering of the html file, theses dependencies are downloaded.
 
-[Schema no1]
-1: browse to https://test.website.com
-2: webserver process the request
-3: return the homepage
-4: rendering of the html page
+### Answer n°1
 
-> **Answer no1**:  
-> **Your navigator browse to https://test.website.com. The web server hosted on the URL https://test.website.com **receive the request** and **process it**. It retrieves the requested resource, in this case, the homepage of test.website.com. Your computer **renders the webpage** by **fetching homepage's dependencies**, and display it on your screen.**
+![image](./images/answer-1.png#center)
+
+> Your navigator browse to https://test.website.com. It send a request. The web server receive the request and process it.  
+> It retrieves the requested resource, in this case, the homepage of test.website.com.  
+> Your navigator renders the webpage: it fetchs the homepage's dependencies and display it on your screen.
 
 ---
 
-## Level 2: The network connaiseur
-
-Knowledge:
-
-- TLS Handshake (if HTTPS)
-- Port 80 and 443
-- HTTP Request
-- Web Server Processing
-- HTTP Response
-- Rendering the Web Page
+## Second layer
 
 A more experienced candidate might include **HTTP elements** in his reponse. He also might notice that the **protocol used is HTTPS**.
 
@@ -68,105 +60,56 @@ The protocol used on that request is **HTTPS**. A TLS (Transport Layer Security)
 
 ### HTTP Request
 
-Your computer request the webpage through the HTTP GET method.
-A basic HTTP request contains an URL and a method.
-Some headers are included
-XXX
+Your navigator request the webpage through the HTTP GET method.
+An HTTP request consists of several components, including:
+
+- **Request Method**: This indicates the action to be performed, such as GET, POST, or HEAD. In a typical web page request, the method is usually GET.
+- **Resource Path**: The specific resource on the server that you are requesting, like "/index.html" or simply "/" for the homepage.
+- **Headers**: Additional metadata accompanying the request, such as information about the browser, accepted content types, and more.
+- **Body** (for some methods): For methods like POST, the request may include data in the body of the request.
 
 ### HTTP Response
 
-The webserver send back a HTTP response to the client. The response includes the data and the metadata
-XXX
+Upon receiving the HTTP request, the web server processes it and generates an HTTP response.
+The HTTP response includes:
 
-[Schema no2]
+- **Status Line**: This line includes an HTTP status code (e.g., 200 OK for a successful request), indicating the outcome of the request.
+- **Headers**: Similar to the request, response headers provide additional information about the server, the content type, and other details.
+- **Body**: The actual content of the requested resource. For a web page, this is typically HTML, but it could also include other resources like images, stylesheets, or scripts.
+- **Cookies**: The server might send cookies to your browser for session management or tracking purposes.
 
-1: browse to https://test.website.com
-TLS handshake
-Send a HTTP GET request
-2: webserver process the request
-Response the HTTP GET request
-4: rendering of the html page
+### Answer n°2
 
-> **Answer no2**:  
-> Your navigator browse to https://test.website.com. **An HTTPS connection is initalized with the webserver under the domain test.website.com: A **TLS handshake** takes place and an encrypted connection is opened on port 443.**  
-> **Once the connection is established, your computer sends an HTTP GET request to the web server, specifying the resource you want to retrieve.**  
-> The web server receives the HTTP request and processes it. It retrieves the requested resource, in this case, the homepage of test.website.com. along with his dependencies. **The web server sends an HTTP response back to your computer. The response includes the requested web page content, status codes, and other relevant information.** Your browser receives the HTTP response and renders the web page, displaying it on your screen.
+![image](./images/answer-2.png#center)
 
----
-
-## Level 3:
-
-Knowledge:
-
-- DNS Resolution
-- Establishing a TCP Connection
-- TLS Handshake (if HTTPS)
-- HTTP Request
-- Web Server Processing
-- HTTP Response
-- Rendering the Web Page
-
-### DNS Resolution
-
-When you browse to the website https://test.website.com, the first thing that will occur is the DNS (Domain Name Server) resolution. A client reach through HTTP with IP adresses. The action of resolving a domain with a
-Your computer is looking for the IP address associated with the domain of the website, test.website.com. It checks in his local DNS cache first. If not found, it send a DNS query to the configured DNS server
-
-### Establishing a TCP Connection
-
-Schema:
-1: browse to https://test.website.com
-DNS Resolution
-Open TCP Connection
-TLS handshake
-Send a HTTP GET request
-2: webserver process the request
-Response the HTTP GET request
-4: rendering of the html page
-
-> **Answer no3:**  
-> **Your computer checks its local DNS cache to see if it already has the IP address linked to test.webiste.com. If not found, it sends a DNS query to your configured DNS server to resolve the domain name (test.webiste.com) to an IP address. The DNS server responds with the IP address (10.0.20.5) associated with test.webiste.com.**  
-> **Your computer initiates a TCP (Transmission Control Protocol) connection to the IP address 10.0.20.5 on port 443 (default for HTTPS). A three-way handshake (SYN, SYN-ACK, ACK) occurs between your computer and the web server to establish a reliable connection.**  
-> **A TLS handshake takes place and an encrypted connection is opened.** Once the connection is established, your computer sends an HTTP GET request to the web server, specifying the resource you want to retrieve (by default the homepage, which is commonely the index.html file).
-> The web server (at IP address 10.0.20.5) receives the HTTP request and processes it.
-> It retrieves the homepage of test.webiste.com, and sends an HTTP response back to your computer. The response includes the requested web page content, status codes, and other relevant information.
+> An HTTPS connection is initalized with the webserver under the domain test.website.com: A TLS handshake takes place and an encrypted connection is opened on port 443.  
+> Once the connection is established, your computer sends an HTTP GET request to the web server, specifying the resource you want to retrieve.  
+> The web server receives the HTTP request and processes it. It retrieves the requested resource, in this case, the homepage of test.website.com, along with his dependencies.  
+> The web server sends an HTTP response back to your computer. The response includes the requested web page content, status codes, and other relevant information.
 > Your browser receives the HTTP response and renders the web page, displaying it on your screen.
 
 ---
 
-## Level 3+:
+## Third layer
 
-There are a lot of others subjects to cover on this question. If you want to learn more, you can check out these subjects
+### DNS Resolution
 
-- ARP
-  Packet lost
-  What if not on a LAN ? default gateway
-  Cookie
+When you browse to the website https://test.website.com, the first thing that will occur is the DNS (Domain Name Server) resolution. A client reach through HTTP with IP adresses. The action of resolving a domain with a
+Your computer is looking for the IP address associated with the domain of the website, test.website.com. It checks in his local DNS cache first. If not found, it send a DNS query to the configured DNS server.
 
-ChatGPT:
+### Establishing a TCP Connection
 
-DNS Resolution:
-Your computer checks its local DNS cache to see if it already has the IP address for test.webiste.com.
-If not found, it sends a DNS query to your configured DNS server to resolve the domain name (test.webiste.com) to an IP address.
-The DNS server responds with the IP address (10.0.20.5) associated with test.webiste.com.
+### Answer n°3
 
-Establishing a TCP Connection:
-Your computer initiates a TCP (Transmission Control Protocol) connection to the IP address 10.0.20.5 on port 443 (default for HTTPS).
-A three-way handshake (SYN, SYN-ACK, ACK) occurs between your computer and the web server to establish a reliable connection.
+![image](./images/answer-3.png#center)
 
-TLS Handshake (if HTTPS):
-If the website uses HTTPS, a TLS (Transport Layer Security) handshake takes place to secure the communication.
-This involves exchanging cryptographic parameters, verifying certificates, and ensuring an encrypted connection.
+> Your computer checks its local DNS cache to see if it already has the IP address linked to test.webiste.com.  
+> If not found, it sends a DNS query to your configured DNS server to resolve the domain name (test.webiste.com) to an IP address. The DNS server responds with the IP address (10.0.20.5) associated with test.webiste.com.  
+> Your computer initiates a TCP (Transmission Control Protocol) connection to the IP address 10.0.20.5 on port 443 (default for HTTPS). A three-way handshake (SYN, SYN-ACK, ACK) occurs between your computer and the web server to establish a reliable connection.  
+> A TLS handshake takes place and an encrypted connection is opened.  
+> Once the connection is established, your computer sends an HTTP GET request to the web server, specifying the resource you want to retrieve (by default the homepage, which is commonely the index.html file).  
+> The web server (at IP address 10.0.20.5) receives the HTTP request and processes it.  
+> It retrieves the homepage of test.webiste.com, and sends an HTTP response back to your computer. The response includes the requested web page content, status codes, and other relevant information.  
+> Your browser receives the HTTP response and renders the web page, displaying it on your screen.
 
-HTTP Request:
-Once the connection is established, your computer sends an HTTP GET request to the web server, specifying the resource you want to retrieve (e.g., the homepage).
-
-Web Server Processing:
-The web server (at IP address 10.0.20.5) receives the HTTP request and processes it.
-It retrieves the requested resource, in this case, the homepage of test.webiste.com.
-
-HTTP Response:
-The web server sends an HTTP response back to your computer.
-The response includes the requested web page content, status codes, and other relevant information.
-
-Rendering the Web Page:
-Your browser receives the HTTP response and renders the web page, displaying it on your screen.
+---

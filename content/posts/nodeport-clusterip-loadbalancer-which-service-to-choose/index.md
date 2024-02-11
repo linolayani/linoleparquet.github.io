@@ -29,11 +29,15 @@ Pods get assigned an internal IP adress at their creation. Client within the clu
 But pods are ephemeral: An unhealty pod with certain IP adress might be replaced by a pod with a different IP address. The internal IP address isn't a reliable option  
 That's the issue a service attend to resolve: provide a reliable address to reach pods.
 
+---
+
 ## ClusterIP
 
 ClusterIP type is the **default** type. It exposes the service on a **cluster-internal IP**. Only client within the cluster are able to access this service. Clients outside of the cluster cannot reach it, which can be desirable for security purpose.
 
 ![image](./images/clusterip.png#center)
+
+---
 
 ## LoadBalancer
 
@@ -54,7 +58,12 @@ NodePort exposes the Service on each Node's IP at a static port. It is the most 
 
 ## ExternalName
 
-ExternalName map a Service to a DNS name. This allows to consider an external ressource as an internal one, and appreciate Kubernetes built in ressource mapping using selectors and tags.
+ExternalName map a Service to a **DNS name**.  
+This allows to **consider an external ressource as an internal one**, and appreciate Kubernetes built in ressource mapping using selectors and tags.
+
+![image](./images/externalname.png#center)
+
+---
 
 ## Conclusion
 
