@@ -4,8 +4,8 @@ author: Lino Layani
 date: 2024-01-25T12:29:21-06:00
 tags: ["interview", "networking"]
 
-description: Let's decompose a common interview question
-summary: You're on a LAN with IP `10.0.10.20`, you browse to a website at `https://test.website.com` (`10.0.20.5`), describe what happens.
+description: Let's decompose a common interview question.
+summary: Let's decompose a common interview question.
 
 cover:
   image: "/posts/what-happens-when-you-type-test.webiste.com-in-your-browser/images/thumbnail.jpg"
@@ -15,9 +15,10 @@ cover:
   hidden: false # only hide on current single page
 ---
 
-You're on a LAN with IP `10.0.10.20`. You browse to a website at `https://test.website.com` (`10.0.20.5`). Describe what happens.
+> You're on a LAN with IP `10.0.10.20`. You browse to a website at `https://test.website.com` (`10.0.20.5`). Describe what happens.
 
-This is a open question. There is no good nor bad answers, and **multiple layers of understanding**. For the purpose of this article, I will introduce three levels of comprehension.
+This is a open question. There is no good nor bad answers, and **multiple layers of understanding**.  
+For the purpose of this article, I will introduce three levels of comprehension.
 
 ---
 
@@ -25,20 +26,21 @@ This is a open question. There is no good nor bad answers, and **multiple layers
 
 ### Web Server Processing
 
-What means **browsing to the website https://test.website.com** in **technical terms**?
-Your browser request to **render the webpage** hosted on the URL `https://test.website.com`. The webserver at this domain **receives the HTTP request** and **processes it**. It retrieves the requested resource, in this case the homepage.
+What means **browsing to the website `https://test.website.com`** in **technical terms**?
+Your browser request to **render the webpage** hosted on `test.website.com`.  
+The webserver at this domain **receives the HTTP request** and **processes it**. It retrieves the requested resource, in this case the homepage.
 
 > Note: Most webservers define the **index.html** file as their homepage.
 
 ### Client Side Rendering
 
-The homepage is downloaded on the your browser. Most of the time, this html page has **dependencies** under the form of link and script. Commons dependencies are a **stylesheets, scripts or images**. At the rendering of the html file, theses dependencies are downloaded.
+The homepage is downloaded on your browser. Most of the time, this html page has **dependencies** under the form of link and script. Commons dependencies are **stylesheets, scripts or images**. At the rendering of the html file, theses dependencies are downloaded.
 
 ### Answer n°1
 
 ![image](./images/answer-1.png#center)
 
-> Your navigator browse to https://test.website.com. It send a request. The web server receive the request and process it.  
+> Your navigator browse to `https://test.website.com`, thus sending a request to the webserver. The web server receive the request and process it.  
 > It retrieves the requested resource, in this case, the homepage of test.website.com.  
 > Your navigator renders the webpage: it fetchs the homepage's dependencies and display it on your screen.
 
@@ -46,7 +48,8 @@ The homepage is downloaded on the your browser. Most of the time, this html page
 
 ## Second layer
 
-A more experienced candidate might include **HTTP elements** in his reponse. He also might notice that the **protocol used is HTTPS**.
+A more experienced candidate might include **HTTP concepts** in his reponse.  
+He also might notice that the protocol used is **HTTPS**.
 
 ### TLS Handshake
 
@@ -60,7 +63,7 @@ The protocol used on that request is **HTTPS**. A TLS (Transport Layer Security)
 
 ### HTTP Request
 
-Your navigator request the webpage through the HTTP GET method.
+Your navigator request the webpage through the HTTP GET method.  
 An HTTP request consists of several components, including:
 
 - **Request Method**: This indicates the action to be performed, such as GET, POST, or HEAD. In a typical web page request, the method is usually GET.
@@ -70,7 +73,7 @@ An HTTP request consists of several components, including:
 
 ### HTTP Response
 
-Upon receiving the HTTP request, the web server processes it and generates an HTTP response.
+Upon receiving the HTTP request, the web server processes it and generates an HTTP response.  
 The HTTP response includes:
 
 - **Status Line**: This line includes an HTTP status code (e.g., 200 OK for a successful request), indicating the outcome of the request.
