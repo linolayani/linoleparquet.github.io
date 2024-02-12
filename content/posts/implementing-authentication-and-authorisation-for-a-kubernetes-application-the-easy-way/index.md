@@ -90,6 +90,8 @@ Follow the steps described in this [post from Google](https://developers.google.
 The creation of the OAuth2 Client ID will prompt two values: the **Client ID** and the **Client Secret**.  
 Store them, we will need them on the next step.
 
+---
+
 ## Step 3: Deploy OAuth2Proxy
 
 ### Generate the cookie secret

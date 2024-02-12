@@ -22,7 +22,7 @@ params:
   author: Lino Layani
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
-  defaultTheme: dark # dark, light
+  defaultTheme: light # dark, light
   disableThemeToggle: false
 
   ShowReadingTime: true
@@ -69,8 +69,6 @@ params:
         url: posts
       - name: Tags
         url: tags
-      - name: About Me
-        url: about-me
 
   socialIcons:
     - name: linkedin
@@ -105,9 +103,9 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: tags
-      name: tags
-      url: /tags/
+    - identifier: About Me
+      name: About Me
+      url: /about-me/
       weight: 20
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
