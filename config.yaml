@@ -1,5 +1,5 @@
 baseURL: "https://linoleparquet.github.io/"
-title: Lino Layani - Senior Site Reliability Engineer
+title: Lino Layani - Site Reliability Engineer
 paginate: 5
 theme: PaperMod
 
@@ -29,7 +29,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: false
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
@@ -39,7 +39,7 @@ params:
   hidemeta: false
   hideSummary: false
   showtoc: true
-  tocopen: false
+  tocopen: true
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -52,23 +52,25 @@ params:
 
   label:
     text: "Blog - Lino Layani"
-    icon: "/favicon.ico"
+    icon: "favicon.ico"
     iconHeight: 35
 
   # profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
+    enabled: true # needs to be explicitly set
     title: Lino Layani
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
+    subtitle: "Site Reliability Engineer"
+    imageUrl: "images/portrait_2.png"
+    imageWidth: 250
+    imageHeight: 288
+    imageTitle: Lino
     buttons:
       - name: Posts
         url: posts
       - name: Tags
         url: tags
+      - name: About Me
+        url: about-me
 
   socialIcons:
     - name: linkedin
