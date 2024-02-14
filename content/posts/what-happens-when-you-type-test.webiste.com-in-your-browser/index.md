@@ -53,33 +53,48 @@ He also might notice that the protocol used is **HTTPS**.
 
 ### TLS Handshake
 
-The protocol used on that request is **HTTPS**. A TLS (Transport Layer Security) handshake takes place to secure the communication. The TLS Handshake consist of 5 phases:
+The protocol used on that request is **HTTPS**. The TLS (Transport Layer Security) handshake is like a secure conversation that happens between your web browser and a website's server when you connect to a secure website. Here's a simplified explanation:
 
-- Hello Phase: Your browser says hello to the web server. The web server reponds with its own hello.
-- Key Exchange Phase: Your browser and the server agree on a method to securely exchange encryption keys.
-- Authentication Phase: The server proves its identity to your browser, assuring that it is indeed the legitimate website you intend to visit. This is typically done using SSL certificate.
-- Ready to Communicate: Your browser and the server now have everything they need to communicate securely.
-  https://www.youtube.com/watch?v=j9QmMEWmcfo
+1. **_Hello Phase_**:  
+   Your browser says "Hello" to the website's server.
+   The server responds with its own "Hello."
+   During this phase, they also exchange some information about the encryption methods they can use.
+
+2. **_Key Exchange Phase_**:  
+   Your browser and the server agree on a method to securely exchange encryption keys.
+   Think of encryption keys as secret codes that will be used to scramble and unscramble the information being sent between your browser and the server.
+
+3. **_Authentication Phase_**:  
+   The server proves its identity to your browser, assuring that it is indeed the legitimate website you intend to visit.
+   This is typically done using digital certificates, which are like online ID cards for websites.
+
+4. **_Ready to Communicate_**:  
+   Your browser and the server now have everything they need to communicate securely.
+   They agree on a common encryption method and have exchanged the necessary keys.
+
+5. **_Secure Data Transfer_**:  
+   From this point on, any data exchanged between your browser and the server is encrypted using the agreed-upon keys.
+   Even if someone were to intercept the data in transit, it would be extremely difficult to understand without the proper keys.
 
 ### HTTP Request
 
 Your navigator request the webpage through the HTTP GET method.  
 An HTTP request consists of several components, including:
 
-- **Request Method**: This indicates the action to be performed, such as GET, POST, or HEAD. In a typical web page request, the method is usually GET.
-- **Resource Path**: The specific resource on the server that you are requesting, like "/index.html" or simply "/" for the homepage.
-- **Headers**: Additional metadata accompanying the request, such as information about the browser, accepted content types, and more.
-- **Body** (for some methods): For methods like POST, the request may include data in the body of the request.
+- **_Request Method_**: This indicates the action to be performed, such as GET, POST, or HEAD. In a typical web page request, the method is usually GET.
+- **_Resource Path_**: The specific resource on the server that you are requesting, like "/index.html" or simply "/" for the homepage.
+- **_Headers_**: Additional metadata accompanying the request, such as information about the browser, accepted content types, and more.
+- **_Body_** (for some methods): For methods like POST, the request may include data in the body of the request.
 
 ### HTTP Response
 
 Upon receiving the HTTP request, the web server processes it and generates an HTTP response.  
 The HTTP response includes:
 
-- **Status Line**: This line includes an HTTP status code (e.g., 200 OK for a successful request), indicating the outcome of the request.
-- **Headers**: Similar to the request, response headers provide additional information about the server, the content type, and other details.
-- **Body**: The actual content of the requested resource. For a web page, this is typically HTML, but it could also include other resources like images, stylesheets, or scripts.
-- **Cookies**: The server might send cookies to your browser for session management or tracking purposes.
+- **_Status Line_**: This line includes an HTTP status code (e.g., 200 OK for a successful request), indicating the outcome of the request.
+- **_Headers_**: Similar to the request, response headers provide additional information about the server, the content type, and other details.
+- **_Body_**: The actual content of the requested resource. For a web page, this is typically HTML, but it could also include other resources like images, stylesheets, or scripts.
+- **_Cookies_**: The server might send cookies to your browser for session management or tracking purposes.
 
 ### Answer n°2
 
@@ -101,6 +116,32 @@ When you browse to the website https://test.website.com, the first thing that wi
 Your computer is looking for the IP address associated with the domain of the website, test.website.com. It checks in his local DNS cache first. If not found, it send a DNS query to the configured DNS server.
 
 ### Establishing a TCP Connection
+
+Establishing a TCP (Transmission Control Protocol) connection involves a series of steps between a client and a server. Here are the simplified steps:
+
+1. Client initiates connection:
+
+The client sends a request to establish a connection to the server. This is known as the "TCP three-way handshake" and begins with a SYN (synchronize) packet.
+The client sets the sequence number (SEQ) in the packet to an initial value.
+Server responds:
+
+Upon receiving the SYN packet, the server acknowledges the request and responds with a SYN-ACK packet.
+The server also sets its own initial sequence number (SEQ) and acknowledges the client's sequence number.
+Client acknowledges the response:
+
+The client receives the SYN-ACK packet and sends an ACK (acknowledge) packet back to the server.
+The client also acknowledges the server's sequence number.
+Connection established:
+
+At this point, both the client and server have exchanged the necessary information to establish a connection. The TCP connection is now established and data can be transmitted between them.
+Data exchange:
+
+Once the connection is established, the client and server can start exchanging data in both directions.
+Connection termination (optional):
+
+When the communication is complete, either the client or the server can initiate the connection termination process.
+This involves a similar three-way handshake, with FIN (finish) packets, to gracefully close the connection.
+These steps ensure a reliable and ordered exchange of data between the client and server. The TCP protocol is designed to handle error recovery, flow control, and sequencing of data to ensure the reliable transmission of information across the network.
 
 ### Answer n°3
 
