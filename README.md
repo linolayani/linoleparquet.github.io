@@ -1,15 +1,15 @@
 # linoleparquet.github.io
 
-Portfolio Website.
+Portfolio Website. Powered by Hugo.
 
 ## Source
 
 https://colorlib.com/wp/template/clark/
 
-## Useful commands
+## Utility commands
 
 Convert scss to css:
 
 ```sh
-docker run --rm -v $(pwd):$(pwd) -w $(pwd) jbergknoff/sass scss/style.scss >| css/style.css
+sass --watch content/about-me/scss/style.scss  content/about-me/css/style.css
 ```
