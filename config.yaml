@@ -51,13 +51,13 @@ params:
     safari_pinned_tab: "favicon.ico"
 
   label:
-    text: "Blog - Lino Layani"
+    text: "Lino Layani"
     icon: "favicon.ico"
     iconHeight: 35
 
   # profile-mode
   profileMode:
-    enabled: true # needs to be explicitly set
+    enabled: false # needs to be explicitly set
     title: Lino Layani
     subtitle: "Site Reliability Engineer"
     imageUrl: "images/portrait_2.png"
@@ -103,9 +103,13 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: About Me
-      name: About Me
-      url: /about-me/
+    - identifier: Homepage
+      name: Homepage
+      url: /
+      weight: 20
+    - identifier: Posts
+      name: Posts
+      url: /posts/
       weight: 20
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
