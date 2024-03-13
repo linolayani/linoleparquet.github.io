@@ -18,7 +18,7 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Lino Layani
   description: "Lino Layani - Senior Site Reliability Engineer"
-  keywords: [Blog, Portfolio, AWS, Cloud, DevOps]
+  keywords: [Blog, Portfolio, AWS, Cloud, DevOps, Lino, Layani]
   author: Lino Layani
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
