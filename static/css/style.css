@@ -8973,7 +8973,6 @@ h5,
 }
 
 .ftco-navbar-light {
-  background: transparent !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -8982,7 +8981,6 @@ h5,
 }
 @media (max-width: 991.98px) {
   .ftco-navbar-light {
-    background: #000000 !important;
     position: relative;
     top: 0;
     padding-top: 0;
@@ -9000,14 +8998,6 @@ h5,
   color: #000000;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
-}
-.ftco-navbar-light .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
-  color: #fff !important;
-}
-@media (max-width: 991.98px) {
-  .ftco-navbar-light .navbar-brand {
-    color: #fff;
-  }
 }
 @media (max-width: 991.98px) {
   .ftco-navbar-light .navbar-nav {
