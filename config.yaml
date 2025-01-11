@@ -1,6 +1,7 @@
 baseURL: "https://linoleparquet.github.io/"
 title: Lino Layani - Site Reliability Engineer
-paginate: 5
+pagination:
+  pagerSize: 5
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -8,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: G-8083F5PRPK
+googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
@@ -18,11 +19,11 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Lino Layani
   description: "Lino Layani - Senior Site Reliability Engineer"
-  keywords: [Blog, Portfolio, AWS, Cloud, DevOps, Lino, Layani]
+  keywords: [Blog, Portfolio, AWS, Cloud, DevOps]
   author: Lino Layani
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
-  defaultTheme: light # dark, light
+  defaultTheme: dark # dark, light
   disableThemeToggle: false
 
   ShowReadingTime: true
@@ -51,13 +52,13 @@ params:
     safari_pinned_tab: "favicon.ico"
 
   label:
-    text: "Lino Layani"
+    text: "Blog - Lino Layani"
     icon: "favicon.ico"
     iconHeight: 35
 
   # profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
+    enabled: true # needs to be explicitly set
     title: Lino Layani
     subtitle: "Site Reliability Engineer"
     imageUrl: "images/portrait_2.png"
@@ -69,6 +70,8 @@ params:
         url: posts
       - name: Tags
         url: tags
+      - name: About Me
+        url: about-me
 
   socialIcons:
     - name: linkedin
@@ -103,13 +106,9 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: Homepage
-      name: Homepage
-      url: /
-      weight: 20
-    - identifier: Posts
-      name: Posts
-      url: /posts/
+    - identifier: tags
+      name: tags
+      url: /tags/
       weight: 20
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma

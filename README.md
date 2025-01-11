@@ -2,11 +2,18 @@
 
 Portfolio Website. Powered by Hugo.
 
-## Source
+## Setup environment
+
+- download Hugo
+- download PaperMod `git clone https://github.com/adityatelange/hugo-PaperMod themes/PaperMod --depth=1`
+
+## Previous website infos
+
+### Sources
 
 https://colorlib.com/wp/template/clark/
 
-## Utility commands
+### Utility commands
 
 Convert scss to css:
 
