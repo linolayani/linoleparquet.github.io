@@ -8,19 +8,19 @@ draft: true
 summary: "In this article you are going to follow the path many of us has followed to dockerize a full stack application. Let’s dig into it ! ☀️"
 
 cover:
-  image: "/posts/dockerize-a-full-stack-application-narrated-as-a-story/images/1.png"
+  image: "/posts/2022//dockerize-a-full-stack-application-narrated-as-a-story/images/1.png"
   alt: "Dockerize a full stack application, narrated as a story"
 
 images:
-  - "/posts/dockerize-a-full-stack-application-narrated-as-a-story/images/1.png"
-  - "/posts/dockerize-a-full-stack-application-narrated-as-a-story/images/2.png"
-  - "/posts/dockerize-a-full-stack-application-narrated-as-a-story/images/3.png"
+  - "/posts/2022//dockerize-a-full-stack-application-narrated-as-a-story/images/1.png"
+  - "/posts/2022//dockerize-a-full-stack-application-narrated-as-a-story/images/2.png"
+  - "/posts/2022//dockerize-a-full-stack-application-narrated-as-a-story/images/3.png"
 ---
 
 In this article you are going to follow the path many of us has followed to dockerize a full stack application. Let’s dig into it ! ☀️  
 To follow along [here](https://github.com/linoleparquet/docker-compose-mern-stack) is the git repository containing the code
 
-![image](/posts/dockerize-a-full-stack-application-narrated-as-a-story/images/1.png#center)
+![image](/posts/2022//dockerize-a-full-stack-application-narrated-as-a-story/images/1.png#center)
 
 ### Analyse the code
 
@@ -80,7 +80,7 @@ MongoDB database connection established successfully`
 And finally let’s run our development frontend server:
 `cd frontend  
 npm i &amp;&amp; npm start`
-![image](/posts/dockerize-a-full-stack-application-narrated-as-a-story/images/2.png#center)
+![image](/posts/2022//dockerize-a-full-stack-application-narrated-as-a-story/images/2.png#center)
 
 Our todo list is up and running, and fully functional 🎉  
 Yay ! Let’s now Dockerize it
@@ -207,7 +207,7 @@ Here is a schema explaining what we want to put in place:
 
 1.  Navigator call the frontend container which is available through localhost on port 80. Every request that are aimed to the backend container are suffixed by `/api`
 2.  The nginx server is configured to handle those kind of request thanks to the proxy pass configuration: It forward the request to the backend container.
-    ![image](/posts/dockerize-a-full-stack-application-narrated-as-a-story/images/3.png#center)
+    ![image](/posts/2022//dockerize-a-full-stack-application-narrated-as-a-story/images/3.png#center)
 
 Here is the configuration of the nginx:
 ` server {  

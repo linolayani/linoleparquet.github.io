@@ -8,13 +8,13 @@ summary: "How does a user get to perform a certain action on AWS ?"
 tags: ["AWS", "IAM", "AWS Basics", "cloud"]
 
 cover:
-  image: "/posts/iam-mechanics-in-aws-explained/images/1.jpeg"
+  image: "/posts/2022//iam-mechanics-in-aws-explained/images/1.jpeg"
   alt: "IAM Mechanics in AWS explained"
 
 images:
-  - "/posts/iam-mechanics-in-aws-explained/images/1.jpeg"
-  - "/posts/iam-mechanics-in-aws-explained/images/2.jpg"
-  - "/posts/iam-mechanics-in-aws-explained/images/3.png"
+  - "/posts/2022//iam-mechanics-in-aws-explained/images/1.jpeg"
+  - "/posts/2022//iam-mechanics-in-aws-explained/images/2.jpg"
+  - "/posts/2022//iam-mechanics-in-aws-explained/images/3.png"
 ---
 
 Let’s start by defining some useful terms:
@@ -22,7 +22,7 @@ Let’s start by defining some useful terms:
 **IAM**  
 IAM stands for **Identity Access Management**. Its a framework that allows you to control the access to the ressources. Simply put, this is where you to define who can access what.
 
-![Straight from the AWS official documentation](/posts/iam-mechanics-in-aws-explained/images/2.jpg#center)
+![Straight from the AWS official documentation](/posts/2022//iam-mechanics-in-aws-explained/images/2.jpg#center)
 
 ---
 
@@ -57,7 +57,7 @@ Resources are the **entities you are going to interact with in AWS**. They are a
 
 Here is a schema to understand how those objects interact:
 
-![image](/posts/iam-mechanics-in-aws-explained/images/3.png#center)
+![image](/posts/2022//iam-mechanics-in-aws-explained/images/3.png#center)
 
 A **user** can perform an **action** on a **resource** thanks to the **policy** attached to the **role** that the **group** he belongs to assumes.
 

@@ -6,7 +6,7 @@ tags: ["interview", "networking"]
 summary: Let's decompose a common interview question.
 
 cover:
-  image: "/posts/what-happens-when-you-type-test.webiste.com-in-your-browser/images/thumbnail.jpg"
+  image: "/posts/2024/what-happens-when-you-type-test.webiste.com-in-your-browser/images/thumbnail.jpg"
   alt: "What happens when you type test.webiste.com in your browser ?"
   # caption: "" # display caption under cover
   relative: false # when using page bundles set this to true

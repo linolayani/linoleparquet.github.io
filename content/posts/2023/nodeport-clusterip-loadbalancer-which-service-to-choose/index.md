@@ -8,11 +8,11 @@ tags: ["kubernetes", "ClusterIP", "LoadBalancer", "NodePort"]
 summary: "In Kubernetes, there are several different types of service that can be used to expose an application to external traffic."
 
 cover:
-  image: "/posts/nodeport-clusterip-loadbalancer-which-service-to-choose/images/1.png"
+  image: "/posts/2023/nodeport-clusterip-loadbalancer-which-service-to-choose/images/1.png"
   alt: "NodePort, ClusterIP, LoadBalancer: Which service to choose ?"
 
 images:
-  - "/posts/nodeport-clusterip-loadbalancer-which-service-to-choose/images/1.png"
+  - "/posts/2023/nodeport-clusterip-loadbalancer-which-service-to-choose/images/1.png"
 ---
 
 > **TLDR;**  

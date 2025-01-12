@@ -9,12 +9,12 @@ summary: "During the CKAD exam, you will be more that likely prompted to deploy 
 Here is a simple way to test the pod or service you deployed respond properly."
 
 cover:
-  image: "/posts/ckad-tip-ensure-your-deployment-with-a-temporary-container/images/1.jpeg"
+  image: "/posts/2022//ckad-tip-ensure-your-deployment-with-a-temporary-container/images/1.jpeg"
   alt: "CKAD Tip: Ensure your deployment with a temporary container"
 
 images:
- - "/posts/ckad-tip-ensure-your-deployment-with-a-temporary-container/images/1.jpeg"
- - "/posts/ckad-tip-ensure-your-deployment-with-a-temporary-container/images/2.png"
+ - "./images/1.jpeg"
+ - "./images/2.png"
 
 ---
 
@@ -82,7 +82,7 @@ spec:
 Run the following command in the terminal:  
 `kubectl run tmp --image nginx --rm -i --restart=Never -- curl 'nginx:80'`
 
-![image](/posts/ckad-tip-ensure-your-deployment-with-a-temporary-container/images/2.png#center)
+![image](./images/2.png#center)
 
 We reach the deployed nginx service, and get the index.html page deployed on the stdin
 

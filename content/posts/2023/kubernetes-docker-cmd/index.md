@@ -8,7 +8,7 @@ summary: "Containerization is confusing. Even more when two of the most successf
 tags: ["kubernetes", "docker", "cmd", "entrypoint"]
 
 cover:
-  image: "/posts/docker-and-kubernetes-dont-do-this-mistake/images/1.jpeg"
+  image: "/posts/2023/docker-and-kubernetes-dont-do-this-mistake/images/1.jpeg"
 ---
 
 When working with containers in Kubernetes, you should be careful not to mix up Kubernetes `command` and Docker `cmd`.

@@ -8,12 +8,12 @@ tags: ["kubernetes", "oauth2proxy", "authentication", "authorization"]
 summary: ""
 
 cover:
-  image: "/posts/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/1.png"
+  image: "/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/1.png"
   alt: "Implementing authentication and authorisation for a Kubernetes application — the easy way"
 
 images:
-  - "/posts/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/1.png"
-  - "/posts/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/2.png"
+  - "/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/1.png"
+  - "/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/2.png"
 ---
 
 Ever wanted to restrict access to your Kubernetes App to authenticated Google users without writing a single line of code in your application ? Fantastic !
@@ -85,7 +85,7 @@ spec:
 
 Follow the steps described in this [post from Google](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) with this configuration:
 
-![image](/posts/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/2.png#center)
+![image](/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/2.png#center)
 
 The creation of the OAuth2 Client ID will prompt two values: the **Client ID** and the **Client Secret**.  
 Store them, we will need them on the next step.

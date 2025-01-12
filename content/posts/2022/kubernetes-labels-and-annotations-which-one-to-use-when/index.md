@@ -8,7 +8,7 @@ draft: false
 summary: "The difference between Kubernetes Labels and Annotation can be misleading at first. Both are metadata attached to a pod, but serve different purposes."
 
 cover:
-  image: "/posts/kubernetes-labels-and-annotations-which-one-to-use-when/images/1.png" # image path/url
+  image: "/posts/2022//kubernetes-labels-and-annotations-which-one-to-use-when/images/1.png" # image path/url
   alt: "Labels and Annotations" # alt text
   # caption: "" # display caption under cover
   relative: false # when using page bundles set this to true
