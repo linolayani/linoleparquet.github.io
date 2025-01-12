@@ -5,9 +5,6 @@ date: 2022-09-10T20:27:36.859Z
 lastmod: 2024-01-26T13:18:53-06:00
 tags: ["docker", "cmd", "entrypoint", "cloud"]
 
-
-description: "The `ENTRYPOINT` instruction looks almost similar to the `CMD` instruction.  
-Both of them help to define the command that will be executed at the start of the container. What is the difference between those two ?"
 summary: "The `ENTRYPOINT` instruction looks almost similar to the `CMD` instruction.  
 Both of them help to define the command that will be executed at the start of the container. What is the difference between those two ?"
 
@@ -47,7 +44,7 @@ There are two main ways to define the `ENTRYPOINT`:
 - in the Dockerfile, as an instruction
 - in the command `docker run`, as a command line argument `--entrypoint`. This override the `ENTRYPOINT` defined in the Dockerfile
 
-Let’s take an exemple. Let’s start by defining the `ENTRYPOINT` in the Dockerfile.
+Let’s take an example. Let’s start by defining the `ENTRYPOINT` in the Dockerfile.
 
 ![image](/posts/often-misunderstood-difference-between-entrypoint-and-cmd-in-docker/images/2.png#center)
 
@@ -64,7 +61,7 @@ We can override the entrypoint by passing it as a command line argument:
 ## Using ENTRYPOINT and CMD together
 
 The `CMD` instruction can complete the `ENTRYPOINT` instruction.  
-Let’s take an exemple. We re-use the Dockerfile wroten before, and append the line `CMD[“HOME”]` at the end.
+Let’s take an example. We re-use the Dockerfile written before, and append the line `CMD[“HOME”]` at the end.
 
 ![image](/posts/often-misunderstood-difference-between-entrypoint-and-cmd-in-docker/images/5.png#center)
 
@@ -73,7 +70,7 @@ Let’s run the container:
 ![image](/posts/often-misunderstood-difference-between-entrypoint-and-cmd-in-docker/images/6.gif#center)
 
 The container execute the command composed by the `ENTRYPOINT` and the `CMD` instruction. In this case it will be `/bin/printenv HOME`.  
-It’s possible to override the `CMD` present in the Dockerfile by specifing it it the command line. One can see the `CMD` present in the Dockerfile as the default option.  
+It’s possible to override the `CMD` present in the Dockerfile by specifying it it the command line. One can see the `CMD` present in the Dockerfile as the default option.  
 Here we’re gonna override the default `CMD` with the custom value `HOSTNAME`. We can see that the output of our container has changed: It now consist of the value of the environment variable `HOSTNAME.`
 
 ![image](/posts/often-misunderstood-difference-between-entrypoint-and-cmd-in-docker/images/7.gif#center)

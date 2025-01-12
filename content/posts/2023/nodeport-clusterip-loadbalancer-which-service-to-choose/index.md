@@ -5,7 +5,6 @@ date: 2023-09-21T01:52:26.295Z
 lastmod: 2024-01-26T13:19:14-06:00
 tags: ["kubernetes", "ClusterIP", "LoadBalancer", "NodePort"]
 
-description: "In Kubernetes, there are several different types of service that can be used to expose an application to external traffic."
 summary: "In Kubernetes, there are several different types of service that can be used to expose an application to external traffic."
 
 cover:
@@ -25,8 +24,8 @@ images:
 
 ## What is a service ?
 
-Pods get assigned an internal IP adress at their creation. Client within the cluster can reach the pod on their internal IP adress.  
-But pods are ephemeral: An unhealty pod with certain IP adress might be replaced by a pod with a different IP address. The internal IP address isn't a reliable option  
+Pods get assigned an internal IP address at their creation. Client within the cluster can reach the pod on their internal IP address.  
+But pods are ephemeral: An unhealthy pod with certain IP address might be replaced by a pod with a different IP address. The internal IP address isn't a reliable option  
 That's the issue a service attend to resolve: provide a reliable address to reach pods.
 
 ---

@@ -1,14 +1,10 @@
 ---
 title: "Linux tip: awk vs sed vs grep"
 author: ""
-date: 
+date:
 lastmod: 2024-01-26T13:19:15-06:00
 draft: true
-description: ""
 summary: "“awk”, “sed”, and “grep” are three command-line utilities that are commonly used for text processing and manipulation. While they have some…"
-
-
-
 ---
 
 “awk”, “sed”, and “grep” are three command-line utilities that are commonly used for text processing and manipulation. While they have some similarities, they are designed for different purposes and have different strengths and weaknesses.

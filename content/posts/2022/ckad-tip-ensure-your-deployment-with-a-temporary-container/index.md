@@ -5,8 +5,6 @@ date: 2022-11-13T18:35:02.510Z
 lastmod: 2024-01-26T13:19:07-06:00
 tags: ["kubernetes", "CKAD", "service", "cloud"]
 
-description: "During the CKAD exam, you will be more that likely prompted to deploy a service. 
-Here is a simple way to test the pod or service you deployed respond properly."
 summary: "During the CKAD exam, you will be more that likely prompted to deploy a service. 
 Here is a simple way to test the pod or service you deployed respond properly."
 
@@ -101,13 +99,13 @@ We ran a pod called tmp with the following options:
 - `-i`  
   This option keep stdin open on the container in the pod.
 - `--restart=Never`  
-  `RestartPolicy` of the pod: we specify `Never`. Meaning that wheter the pod successed of failed, it get deleted at the end.
+  `RestartPolicy` of the pod: we specify `Never`. Meaning that whether the pod succeed of failed, it get deleted at the end.
   It’s not mandatory, but highly recommended: If `RestartPolicy` isn't set to `Never` it will be set to his default value, `Always`. If there is a mistake on your command, like a silly typo, the pod will restart until he reach the `CrashLoopBackOff` state, and you will have to delete it manually, making you loose precious seconds.
 - `-- curl 'nginx:80'`  
   Argument passed to the container.  
-  We call the curl binairy, specifying the service and the port we want to reach.  
+  We call the curl binary, specifying the service and the port we want to reach.  
   Here I rely on [Kubernetes DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) to reach the nginx service. Another option is to write the IP address directly.  
-  To get the IP adress of a service, type `kubectl get svc`. In my case the IP adress is`172.17.0.4` so the command become `curl '172.17.0.4:80';`
+  To get the IP address of a service, type `kubectl get svc`. In my case the IP address is`172.17.0.4` so the command become `curl '172.17.0.4:80';`
   To get the IP address of a pod, type `kubectl get pods -o wide`
 
 ---

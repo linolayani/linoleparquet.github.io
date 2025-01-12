@@ -3,9 +3,9 @@ title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 date: "{{ .Date }}"
 draft: true
 tags: ["Kubernetes", "Cloud", "Annotations", "Cloud"]
-author: "Lino Layani"
+author: Lino Layani
 
-description: "The difference between Kubernetes Labels and Annotation can be misleading at first. Both are metadata attached to a pod, but serve different purposes."
+summary: The difference between Kubernetes Labels and Annotation can be misleading at first. Both are metadata attached to a pod, but serve different purposes.
 
 disableShare: false
 searchHidden: false

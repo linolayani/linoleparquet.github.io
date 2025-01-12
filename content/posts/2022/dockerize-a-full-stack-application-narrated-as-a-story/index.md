@@ -5,7 +5,6 @@ date: 2022-06-29T05:27:41.333Z
 lastmod: 2024-01-26T13:18:48-06:00
 draft: true
 
-description: ""
 summary: "In this article you are going to follow the path many of us has followed to dockerize a full stack application. Let’s dig into it ! ☀️"
 
 cover:
@@ -26,7 +25,7 @@ To follow along [here](https://github.com/linoleparquet/docker-compose-mern-stac
 ### Analyse the code
 
 I took as source code an easy MERN stack available [here](https://github.com/Ram-the-coder/MERN-Stack-Todo-List-App).  
-First, let’s analyse the code.
+First, let’s analyze the code.
 
 #### Backend
 
@@ -67,8 +66,8 @@ Let’s understand this command:
 
 - `docker run` : run a container
 - `-p27017:27017`: map port 27017 of the container to our host
-- `--name my-mongo` : name the container mongo. Usefull to manage it (start, stop, delete) afterward
-- `-d` : run the container in deamon mode.
+- `--name my-mongo` : name the container mongo. Useful to manage it (start, stop, delete) afterward
+- `-d` : run the container in daemon mode.
 - `mongo`: Name of the image to run. [https://hub.docker.com/\_/mongo](https://hub.docker.com/_/mongo)`$ curl localhost:27017  
 It looks like you are trying to access MongoDB over HTTP on the native driver port.`
 
@@ -200,7 +199,7 @@ How can we fix that? 🤔
 
 #### Connect frontend and backend
 
-To understand this error, we have to realise that the frontend code is executed on the client navigator. It means that `localhost` refers to the localhost of the client machine, which is a separate network from the docker-compose network. We need to find a way to reach the backend container, which is available from the docker-compose network.
+To understand this error, we have to realize that the frontend code is executed on the client navigator. It means that `localhost` refers to the localhost of the client machine, which is a separate network from the docker-compose network. We need to find a way to reach the backend container, which is available from the docker-compose network.
 
 What we want to put in place is called a reverse proxy. We will achieve this through an nginx configuration: the idea here is to use the frontend container as a reverse proxy to intercept backend calls from the navigator of the client and redirect them to the backend container. The code executed on the navigator will reach port 80 of his localhost, which is mapped to the port 80 of the container.
 

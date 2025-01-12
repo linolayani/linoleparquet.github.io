@@ -26,21 +26,21 @@ params:
   defaultTheme: light # dark, light
   disableThemeToggle: false
 
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: true
+  ShowReadingTime: false
+  ShowShareButtons: false
+  ShowPostNavLinks: false
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowWordCount: false
-  ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
+  ShowRssButtonInSectionTermList: false
+  UseHugoToc: false
   disableSpecial1stPost: false
   disableScrollToTop: false
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: true
-  tocopen: true
+  showtoc: false
+  tocopen: false
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -58,7 +58,7 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: true # needs to be explicitly set
+    enabled: false # needs to be explicitly set
     title: Lino Layani
     subtitle: "Site Reliability Engineer"
     imageUrl: "images/portrait_2.png"
@@ -70,8 +70,8 @@ params:
         url: posts
       - name: Tags
         url: tags
-      - name: About Me
-        url: about-me
+      # - name: About Me
+      #   url: about-me
 
   socialIcons:
     - name: linkedin
@@ -89,11 +89,6 @@ params:
   #   yandex:
   #     SiteVerificationTag: "XYZabc"
 
-  editPost:
-    URL: "https://github.com/linoleparquet/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-
   # for search
   # https://fusejs.io/api/options.html
   fuseOpts:
@@ -105,11 +100,11 @@ params:
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
 menu:
-  main:
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
+  # main:
+  #   - identifier: tags
+  #     name: tags
+  #     url: /tags/
+  #     weight: 20
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true

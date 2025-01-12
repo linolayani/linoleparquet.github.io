@@ -3,8 +3,6 @@ title: What happens when you type test.webiste.com in your browser ?
 author: Lino Layani
 date: 2024-01-25T12:29:21-06:00
 tags: ["interview", "networking"]
-
-description: Let's decompose a common interview question.
 summary: Let's decompose a common interview question.
 
 cover:
@@ -50,7 +48,7 @@ Commons dependencies are **stylesheets, scripts or images**. At the rendering of
 
 ## Second layer
 
-A more experienced candidate might include **HTTP concepts** in his reponse.  
+A more experienced candidate might include **HTTP concepts** in his response.  
 He also might notice that the protocol used is **HTTPS**.
 
 ### TLS Handshake
@@ -100,7 +98,7 @@ Upon receiving the HTTP request, the web server processes it and generates an HT
 
 ![image](./images/answer-2.png#center)
 
-> An HTTPS connection is initalized with the webserver under the domain test.website.com: A **TLS handshake** takes place and an **encrypted connection** is opened on port 443.
+> An HTTPS connection is initialized with the webserver under the domain test.website.com: A **TLS handshake** takes place and an **encrypted connection** is opened on port 443.
 >
 > Once the connection is established, your computer sends an **HTTP GET request** to the web server.
 >
@@ -116,7 +114,7 @@ Upon receiving the HTTP request, the web server processes it and generates an HT
 
 ### DNS Resolution
 
-When you browse to the website https://test.website.com, the first thing that will occur is the DNS (Domain Name Server) resolution. A client reach through HTTP with IP adresses. The action of resolving a domain with a
+When you browse to the website https://test.website.com, the first thing that will occur is the DNS (Domain Name Server) resolution. A client reach through HTTP with IP addresses. The action of resolving a domain with a
 Your computer is looking for the IP address associated with the domain of the website, test.website.com. It checks in his local DNS cache first. If not found, it send a DNS query to the configured DNS server.
 
 ### TCP Connection
@@ -145,15 +143,15 @@ These steps ensure a reliable and ordered exchange of data between the client an
 
 ![image](./images/answer-3.png#center)
 
-> Your computer **checks its local DNS cache** to see if it already has the IP address linked to test.webiste.com.  
-> If not found, it **sends a DNS query** to your configured DNS server to resolve the domain name (test.webiste.com) to an IP address. The DNS server **responds with the IP address** (10.0.20.5) associated with test.webiste.com.
+> Your computer **checks its local DNS cache** to see if it already has the IP address linked to test.website.com.  
+> If not found, it **sends a DNS query** to your configured DNS server to resolve the domain name (test.website.com) to an IP address. The DNS server **responds with the IP address** (10.0.20.5) associated with test.website.com.
 >
 > Your computer initiates a **TCP connection** to the IP address 10.0.20.5 on the port 443, default port for HTTPS. A **three-way handshake** (SYN, SYN-ACK, ACK) occurs between your computer and the web server to establish an encrypted connection.
 >
-> Once the connection is established, your computer sends an **HTTP GET request** to the web server, specifying the resource you want to retrieve (by default the homepage, which is commonely the index.html file).  
+> Once the connection is established, your computer sends an **HTTP GET request** to the web server, specifying the resource you want to retrieve (by default the homepage, which is commonly the index.html file).  
 > The web server (at IP address 10.0.20.5) receives the HTTP request and **processes it**.
 >
-> It retrieves the homepage of test.webiste.com, and sends an **HTTP response** back to your computer. The response includes the requested web page content, status codes, and other relevant information.
+> It retrieves the homepage of test.website.com, and sends an **HTTP response** back to your computer. The response includes the requested web page content, status codes, and other relevant information.
 >
 > Your browser receives the HTTP response and **renders the web page**, displaying it on your screen.
 

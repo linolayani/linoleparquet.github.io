@@ -1,12 +1,11 @@
 ---
-title: "Implementing authentication and authorisation for a Kubernetes application — the easy way"
+title: "Implementing authentication and authorization for a Kubernetes application — the easy way"
 author: "Lino Layani"
 date: 2023-02-11T15:51:02.948Z
 lastmod: 2024-01-26T13:19:11-06:00
 tags: ["kubernetes", "oauth2proxy", "authentication", "authorization"]
 
-description: "Ever wanted to restrict access to your Kubernetes App to authenticated Google users without writing a single line of code in your application ?  "
-summary: "Ever wanted to restrict access to your Kubernetes App to authenticated Google users without writing a single line of code in your application ?  "
+summary: ""
 
 cover:
   image: "/posts/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/1.png"
@@ -17,7 +16,8 @@ images:
   - "/posts/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/2.png"
 ---
 
-Fantastic !  
+Ever wanted to restrict access to your Kubernetes App to authenticated Google users without writing a single line of code in your application ? Fantastic !
+
 That’s what we are going to learn today using **OAuth2Proxy**.
 
 First we will deploy **nginx**. It’s gonna represent the **application we want to secure the access to**.  
@@ -98,7 +98,7 @@ Store them, we will need them on the next step.
 
 OAuht2Proxy store the session data in an encrypted cookie. The string used to encrypt the cookie is called a **cookie secret**.
 
-Let's generate a strong cookie secret, following the recommandation of the documentation:
+Let's generate a strong cookie secret, following the recommendation of the documentation:
 `dd if=/dev/urandom bs=32 count=1 2>/dev/null | base64 | tr -d — ‘\n’ | tr — ‘+/’ ‘-\_’; echo`
 
 ### Deploying the service
@@ -156,7 +156,7 @@ spec:
 
 ---
 
-## Let’s test the workflow
+## Testing the workflow
 
 Let’s expose OAuth2Proxy to the outside world:  
 `kubectl port-forward services/oauth2-proxy 4180:4180`
