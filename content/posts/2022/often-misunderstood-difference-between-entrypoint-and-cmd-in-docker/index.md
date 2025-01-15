@@ -5,8 +5,9 @@ date: 2022-09-10T20:27:36.859Z
 lastmod: 2024-01-26T13:18:53-06:00
 tags: ["docker", "cmd", "entrypoint", "cloud"]
 
-summary: "The `ENTRYPOINT` instruction looks almost similar to the `CMD` instruction.  
-Both of them help to define the command that will be executed at the start of the container. What is the difference between those two ?"
+summary: "The container's init process is defined by a ENTRYPOINT and a CMD instruction. 
+
+The `ENTRYPOINT` instruction looks almost similar to the `CMD` instruction. Both of them help to define the init process of the container. What is the difference between those two ?"
 
 
 cover:
@@ -28,16 +29,16 @@ images:
 ---
 
 > **TL;DR**  
-> System call formula: `ENTRYPOINT` + `CMD`  
-> The `ENTRYPOINT` instruction specifies a **system call** that will be executed when the **container starts**.  
-> The `CMD` instruction specifies **arguments** that will be fed to the `ENTRYPOINT`.  
-> If no `ENTRYPOINT` is defined, the default `ENTRYPOINT`, `/bin/sh -c`, will be executed.
+> Init process formula: `ENTRYPOINT` + `CMD`  
+> The `ENTRYPOINT` instruction specifies a **system call** executed when the **container starts**.  
+> The `CMD` instruction specifies **arguments** fed to the `ENTRYPOINT`.  
+> If no `ENTRYPOINT` is defined, the default `ENTRYPOINT`, `/bin/sh -c`, is executed.
 
 ---
 
 ## Using ENTRYPOINT alone
 
-The `_ENTRYPOINT_` instruction specifies a system call that will be executed as a system call when the container starts.
+The `_ENTRYPOINT_` instruction specifies the system call executed at the startup of container.
 
 There are two main ways to define the `ENTRYPOINT`:
 

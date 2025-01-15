@@ -5,7 +5,7 @@ date:
 lastmod: 2025-01-11T18:35:02.510Z
 tags: ["China", "Infrastructure", "AWS"]
 draft: true
-summary: As you may be aware, China has his own web regulations. Part of this regulation is the requirement of an ICP licence for any given public website. [EXPLAIN ICP] This statement makes using S3 public bucket on AWS China tricky and in some case violate the regulation. That is the case we stumbled upon for one of the setup we have on my company.
+summary: As you may be aware, China has his own web regulations. Part of this regulation is the requirement of an ICP license for any given public website. [EXPLAIN ICP] This statement makes using S3 public bucket on AWS China tricky and in some case violate the regulation. That is the case we stumbled upon for one of the setup we have on my company.
 
 cover:
   image: /posts/2025/operating-services-in-china/images/wall-china.webp
