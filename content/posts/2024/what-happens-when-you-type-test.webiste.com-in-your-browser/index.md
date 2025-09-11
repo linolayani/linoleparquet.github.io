@@ -8,9 +8,6 @@ summary: Let's decompose a common interview question.
 cover:
   image: "/posts/2024/what-happens-when-you-type-test.webiste.com-in-your-browser/images/thumbnail.jpg"
   alt: "What happens when you type test.webiste.com in your browser ?"
-  # caption: "" # display caption under cover
-  relative: false # when using page bundles set this to true
-  hidden: false # only hide on current single page
 ---
 
 > You're on a LAN with IP `10.0.10.20`. You browse to a website at `https://test.website.com` (`10.0.20.5`). Describe what happens.
@@ -27,7 +24,7 @@ For the purpose of this article, I will introduce three levels of comprehension.
 What "browsing to the website `https://test.website.com`" means in technical terms?  
 Your browser request to **render the webpage** hosted on `test.website.com`.
 
-The webserver registred at this domain **receives the HTTP request** and **processes it**. It retrieves the requested resource, in this case the homepage.
+The webserver registered at this domain **receives the HTTP request** and **processes it**. It retrieves the requested resource, in this case the homepage.
 
 ### Client Side Rendering
 
@@ -42,7 +39,7 @@ Commons dependencies are **stylesheets, scripts or images**. At the rendering of
 >
 > It retrieves the requested resource, in this case, the homepage of test.website.com, and **return it** to your browser.
 >
-> Your browser **renders the webpage**: it fetchs the homepage's dependencies and display it on your screen.
+> Your browser **renders the webpage**: it fetches the homepage's dependencies and display it on your screen.
 
 ---
 
