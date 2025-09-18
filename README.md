@@ -1,22 +1,12 @@
 # linoleparquet.github.io
 
-Portfolio Website. Powered by Hugo.
+Repository composed of blog post for my portfolio website, exposed on (linolayani.com)[linolayani.com]
 
-## Setup environment
+## How to run locally
 
 - download Hugo
 - download PaperMod `git clone https://github.com/adityatelange/hugo-PaperMod themes/PaperMod --depth=1`
 
-## Previous website infos
-
-### Sources
-
-https://colorlib.com/wp/template/clark/
-
-### Utility commands
-
-Convert scss to css:
-
-```sh
-sass --watch content/about-me/scss/style.scss  content/about-me/css/style.css
+```bash
+hugo serve
 ```

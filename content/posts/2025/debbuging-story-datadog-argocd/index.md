@@ -1,20 +1,34 @@
 ---
-title: "Debugging story time: Deploying datadog with ArgoCD"
+title: "Issue #1: Datadog operator randomly restarts"
 author: "Lino Layani"
 date:
 lastmod: 2025-01-11T18:35:02.510Z
-tags: ["China", "Infrastructure", "AWS"]
+tags: ["Datadog", "ArgoCD", "Infrastructure as code"]
 draft: true
 summary: ""
-
-cover:
-  image: /posts/2025/operating-services-in-china/images/wall-china.webp
-  alt: "What happens when you type test.webiste.com in your browser ?"
+# cover:
+#   image: /posts/2025/operating-services-in-china/images/wall-china.webp
+#   alt: "What happens when you type test.webiste.com in your browser ?"
 ---
 
-Fresh new installation of EKS. Set up ArgoCD as our CD deployment engine.
-Our various datadog client logs dropping traces and metrics frequently: let's investigate.
-Noticed datadog's agents, installed as a deamonset, randomly restart after ~15min.
+## Context
+
+### The setup
+
+We're in the early phase of adopting EKS. We use ArgoCD as our GitOps solution. We follow a monorepo gitops strategy: all applications installed on a cluster, both business and cluster addons, are defined in a single gitops repository.  
+CIs of business applications update the repo with the image tag to be deployed. Argo reads the desired state from it.
+
+[Schema ?? ]
+
+## The error
+
+Datadog metrics are not reliable: traces, logs and metrics drops frequently.
+
+## The diagnostic
+
+My first instinct tells me to check the datadog operator's logs. Nothing there.  
+Continuing with my second instinct: check the pod's events.
+I start investigating. I notice the datadog containers restarts randomly.
 
 [ gif / datadog / restart ]
 
@@ -30,7 +44,7 @@ MEME it wasn't me
 
 # The cure/explanation: GitOps, AutoSync, and token
 
-Let's be honest: One of the main reason we love ops is for debugging special, unresolvable problems.
+Let's be honest: One of the main reason we love ops is for debugging edge, unresolvable problems.
 Although I had others project on the loop, I couldn't help but look for potentials solution to our setup. Obsessed with the problem as they say. One evening, while others were doing normal people evening types of things, I finally found out the reason behind all this mess. Let met explain
 Our datadog setup we adopted is the default one: One datadog agent lives on each node of the cluster (deamonset). These agents send theirs metrics,traces, and others fun things to a in-cluster service called the datadog-cluster-agent. This special agent conglomerate the data and transfers it to datadog.
 [ i am special]
