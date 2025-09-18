@@ -1,23 +1,23 @@
 ---
-title: "NodePort, ClusterIP, LoadBalancer: Which service to choose ?"
+title: "The difference between ClusterIP, NodePort, LoadBalancer, and ExternalName Kubernetes services"
 author: "Lino Layani"
 date: 2023-09-21T01:52:26.295Z
 lastmod: 2024-01-26T13:19:14-06:00
 tags: ["kubernetes", "ClusterIP", "LoadBalancer", "NodePort"]
 
-summary: "In Kubernetes, there are several different types of service that can be used to expose an application to external traffic."
+summary: "Several types of services can be used to expose an application outside the cluster. Choose wisely."
 
 cover:
-  image: "/posts/2023/nodeport-clusterip-loadbalancer-which-service-to-choose/images/1.png"
-  alt: "NodePort, ClusterIP, LoadBalancer: Which service to choose ?"
+  image: "/posts/2023/difference-clusterip-nodeport-loadbalancer-kubernetes/images/1.png"
+  alt: "The difference between ClusterIP, NodePort, and LoadBalancer Kubernetes services"
 
 images:
-  - "/posts/2023/nodeport-clusterip-loadbalancer-which-service-to-choose/images/1.png"
+  - "/posts/2023/difference-clusterip-nodeport-loadbalancer-kubernetes/images/1.png"
 ---
 
 > **TLDR;**  
-> **LoadBalancer** most of the time,  
-> **ClusterIP** when you want to expose your service **internally**,  
+> **LoadBalancer** for exposing your service **externally**,  
+> **ClusterIP** for exposing your service **internally**,  
 > **NodePort** for testing and **development** or **batch** purpose.
 
 ---
@@ -25,18 +25,14 @@ images:
 ## What is a service ?
 
 Pods get assigned an internal IP address at their creation. Client within the cluster can reach the pod on their internal IP address.  
-But pods are ephemeral: An unhealthy pod with certain IP address might be replaced by a pod with a different IP address. The internal IP address isn't a reliable option  
-That's the issue a service attend to resolve: provide a reliable address to reach pods.
-
----
+But pods are ephemeral. A restarted pod might get assigned a new IP address. Relying on the pod's internal IP isn't a reliable solution.  
+That's exactly the issue a service attend to resolve: provide a reliable address to reach pods.
 
 ## ClusterIP
 
 ClusterIP type is the **default** type. It exposes the service on a **cluster-internal IP**. Only client within the cluster are able to access this service. Clients outside of the cluster cannot reach it, which can be desirable for security purpose.
 
 ![image](./images/clusterip.png#center)
-
----
 
 ## LoadBalancer
 
@@ -45,24 +41,18 @@ It’s the most used service overall. This is a more **advanced** and **scalable
 
 ![image](./images/loadbalancer.png#center)
 
----
-
 ## NodePort
 
 NodePort exposes the Service on each Node's IP at a static port. It is the most primitive way to get external traffic directly to your service. This is a **simple** and **straightforward** way to expose an application, but it does **not provide load balancing or high availability**.
 
 ![image](./images/nodeport.png#center)
 
----
-
 ## ExternalName
 
 ExternalName map a Service to a **DNS name**.  
-This allows to **consider an external ressource as an internal one**, and appreciate Kubernetes built in ressource mapping using selectors and tags.
+This allows to **represent an external resource as an internal one**, and appreciate Kubernetes built in resource mapping using selectors and tags.
 
 ![image](./images/externalname.png#center)
-
----
 
 ## Conclusion
 

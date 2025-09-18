@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes Labels and Annotations Which One to Use When"
+title: "Kubernetes Labels and Annotations: Which One to Use When"
 date: 2022-10-23T12:31:49-06:00
 tags: ["kubernetes", "labels", "annotations", "cloud"]
 author: "Lino Layani"
@@ -8,7 +8,7 @@ draft: false
 summary: "The difference between Kubernetes Labels and Annotation can be misleading at first. Both are metadata attached to a pod, but serve different purposes."
 
 cover:
-  image: "/posts/2022//kubernetes-labels-and-annotations-which-one-to-use-when/images/1.png" # image path/url
+  image: "/posts/2022/kubernetes-labels-annotations/images/1.png" # image path/url
   alt: "Labels and Annotations" # alt text
   # caption: "" # display caption under cover
   relative: false # when using page bundles set this to true
@@ -19,9 +19,7 @@ cover:
 > Labels are **identifying** information intended to be read by Kubernetes.  
 > Annotations are **non-identifying** information intended to be read by humans and third party applications.
 
----
-
-## **Label: what is it, and what is it used for?**
+## Label: what is it, and what is it used for?
 
 Let’s look at the official definition:
 
@@ -76,8 +74,6 @@ The same mechanism define the relationship between a Deployment and a ReplicaSet
 Labels are also used by other applications, such as Helm, to identify the objects he created — and delete them in case of a rollback.  
 That’s the magic behind labels.
 
----
-
 ## Annotation: what is it, and what is it used for?
 
 Let’s look at the official documentation:
@@ -87,19 +83,12 @@ Let’s look at the official documentation:
 Annotation, are also key/values pairs.  
 On the other hands these are not used by Kubernetes internally. Annotation are meant to contain non-identifying metadata. It usually contain raw information destined to the cluster administrator and users, such as the name of the team running the service.
 
-`kubectl annotate pod nginx really_imporant_info=’Mr X really really like this pod. Do not delete it otherwise he be heartbroken.’`
+`kubectl annotate pod nginx really_important_info=’Mr X really really like this pod. Do not delete it otherwise he be heartbroken.’`
 
 It can also contain configuration information meant to be interpreted by a specific tool. Most IngressController rely on annotations to handle configuration. [Nginx](https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/) is one of them.
-
----
 
 ## Conclusion
 
 So, which one should you use? Well, it depends on your use case:  
 If you want to create **relationships between Kubernetes objects**, **labels** are the way to go.  
 If you want to write **non-technical information** attached to a Kubernetes object or leverage an **option of a tool**, **annotations** will serve you better.
-
----
-
-Thank you for taking the time to read my article.  
-If you’re as passionate about cloud technology as I am, make sure to check out my other article. I‘m always sharing new insights and information, and I’d love to have you along for the journey!
