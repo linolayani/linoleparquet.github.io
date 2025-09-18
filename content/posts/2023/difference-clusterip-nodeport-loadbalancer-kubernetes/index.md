@@ -20,8 +20,6 @@ images:
 > **ClusterIP** for exposing your service **internally**,  
 > **NodePort** for testing and **development** or **batch** purpose.
 
----
-
 ## What is a service ?
 
 Pods get assigned an internal IP address at their creation. Client within the cluster can reach the pod on their internal IP address.  

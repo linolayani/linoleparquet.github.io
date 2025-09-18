@@ -1,7 +1,7 @@
 ---
 title: Help me escape Git Hell
 date:
-lastmod: 2025-04-20T13:19:15-06:00
+lastmod: 2024-04-20T13:19:15-06:00
 draft: false
 tags: ["git", "devops"]
 summary: "Stuck in Git hell? We’ve all been there. Luckily, commands exists to get us out."
