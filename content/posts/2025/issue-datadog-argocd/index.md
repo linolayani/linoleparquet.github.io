@@ -3,12 +3,9 @@ title: "Issue #1: Datadog operator randomly restarts"
 author: "Lino Layani"
 date:
 lastmod: 2025-01-11T18:35:02.510Z
-tags: ["Datadog", "ArgoCD", "Infrastructure as code"]
+tags: ["Datadog", "ArgoCD", "Infrastructure as code", "IaC", "EKS"]
 draft: true
 summary: ""
-# cover:
-#   image: /posts/2025/operating-services-in-china/images/wall-china.webp
-#   alt: "What happens when you type test.webiste.com in your browser ?"
 ---
 
 ## Context

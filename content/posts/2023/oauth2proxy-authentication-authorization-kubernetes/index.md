@@ -1,5 +1,5 @@
 ---
-title: "Implementing authentication and authorization for a Kubernetes application — the easy way"
+title: "OAuth2Proxy: Implementing OAuth2 in Kubernetes, the easy way"
 author: "Lino Layani"
 date: 2023-02-11T15:51:02.948Z
 lastmod: 2024-01-26T13:19:11-06:00
@@ -8,24 +8,23 @@ tags: ["kubernetes", "oauth2proxy", "authentication", "authorization"]
 summary: ""
 
 cover:
-  image: "/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/1.png"
-  alt: "Implementing authentication and authorisation for a Kubernetes application — the easy way"
+  image: "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/1.png"
+  alt: "Implementing authentication and authorization for a Kubernetes application — the easy way"
 
 images:
-  - "/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/1.png"
-  - "/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/2.png"
+  - "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/1.png"
+  - "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/2.png"
 ---
 
-Ever wanted to restrict access to your Kubernetes App to authenticated Google users without writing a single line of code in your application ? Fantastic !
+Are you looking to **restrict access to your Kubernetes application** to authenticated users, without modifying a single line of your application’s code? If so, wonderful, you’re in the right place.
 
-That’s what we are going to learn today using **OAuth2Proxy**.
+Here’s the plan:
 
-First we will deploy **nginx**. It’s gonna represent the **application we want to secure the access to**.  
-Then we will create a **OAuth Client in Google API**.  
-Finally we will configure **OAuth2Proxy** to handle the authentication for us.  
-Sounds great ? Let’s dive in ! ✨
+Deploy nginx to represent the application we want to secure.  
+Create an **OAuth Client** in the Google API Console.  
+Configure **OAuth2Proxy** to manage authentication seamlessly on our behalf.
 
----
+Let’s get started. ✨
 
 ## **Step 1: Deploy Nginx**
 
@@ -79,31 +78,27 @@ spec:
     app: nginx
 ```
 
----
-
 ## Step 2: Get your Google API client ID
 
 Follow the steps described in this [post from Google](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) with this configuration:
 
-![image](/posts/2023/implementing-authentication-and-authorisation-for-a-kubernetes-application-the-easy-way/images/2.png#center)
+![image](/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/2.png#center)
 
 The creation of the OAuth2 Client ID will prompt two values: the **Client ID** and the **Client Secret**.  
 Store them, we will need them on the next step.
 
----
-
 ## Step 3: Deploy OAuth2Proxy
 
-### Generate the cookie secret
+### Generate a cookie secret
 
-OAuht2Proxy store the session data in an encrypted cookie. The string used to encrypt the cookie is called a **cookie secret**.
+OAuth2Proxy stores session data within an encrypted cookie. The key used to perform this encryption is referred to as the **cookie secret**.
 
 Let's generate a strong cookie secret, following the recommendation of the documentation:
 `dd if=/dev/urandom bs=32 count=1 2>/dev/null | base64 | tr -d — ‘\n’ | tr — ‘+/’ ‘-\_’; echo`
 
 ### Deploying the service
 
-Apply the following manifest. Replace the placeholders with the values of the cookie secret and the values from step 2.
+Apply the manifest below, making sure to replace the placeholders with your generated cookie secret, and the values obtained in Step 2.
 
 ```yaml
 apiVersion: apps/v1
@@ -153,8 +148,6 @@ spec:
   selector:
     app: oauth2-proxy
 ```
-
----
 
 ## Testing the workflow
 

@@ -2,6 +2,7 @@
 title: What happens when you type test.webiste.com in your browser ?
 author: Lino Layani
 date: 2024-01-25T12:29:21-06:00
+draft: true
 tags: ["interview", "networking"]
 summary: Let's decompose a common interview question.
 
