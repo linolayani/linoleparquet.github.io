@@ -1,6 +1,6 @@
 # linoleparquet.github.io
 
-Repository composed of blog post for my portfolio website, exposed on [linolayani.com](linolayani.com)
+Repository composed of blog post for my portfolio website, exposed on [linolayani.com](https://linolayani.com)
 
 ## How to run locally
 
