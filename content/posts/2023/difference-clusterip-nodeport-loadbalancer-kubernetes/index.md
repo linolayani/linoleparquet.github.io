@@ -1,5 +1,5 @@
 ---
-title: "The difference between ClusterIP, NodePort, LoadBalancer, and ExternalName Kubernetes services"
+title: "Kubernetes: ClusterIP, NodePort, LoadBalancer, ExternalName. What's the difference ?"
 author: "Lino Layani"
 date: 2023-09-21T01:52:26.295Z
 lastmod: 2024-01-26T13:19:14-06:00
@@ -8,7 +8,7 @@ tags: ["kubernetes", "ClusterIP", "LoadBalancer", "NodePort"]
 summary: "Several types of services can be used to expose an application outside the cluster. Choose wisely."
 
 cover:
-  image: "/posts/2023/difference-clusterip-nodeport-loadbalancer-kubernetes/images/1.png"
+  image: "/posts/2023/difference-clusterip-nodeport-loadbalancer-kubernetes/images/1.jpg"
   alt: "The difference between ClusterIP, NodePort, and LoadBalancer Kubernetes services"
 
 images:
