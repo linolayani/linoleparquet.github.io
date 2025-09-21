@@ -8,7 +8,7 @@ draft: false
 summary: Stop wasting time on manual pod restarts. Use Reloader to keep mounted Kubernetes secrets always up to date.
 
 cover:
-  image: "/posts/2025/kubernetes-secret-reloader/images/1.png"
+  image: "/posts/2025/kubernetes-secret-reloader/images/image.png"
   alt: "Kubernetes Secret Reloader"
 ---
 
