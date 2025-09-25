@@ -8,11 +8,11 @@ tags: ["AWS", "AWS Basics", "cloud", "Profile"]
 summary: "AWS profiles are a convenient way to manage and use different sets of credentials and configuration settings in the AWS environment."
 
 cover:
-  image: "/posts/2022/aws-profile-explained/images/1.jpg"
+  image: "/posts/2022/aws-profile-explained/images/image.png"
   alt: "AWS Profiles Explained: Your Shortcut to Hassle-Free Cloud Management"
 
 images:
-  - "/posts/2022/aws-profile-explained/images/1.jpg"
+  - "/posts/2022/aws-profile-explained/images/image.png"
 ---
 
 > **TL;DR**  

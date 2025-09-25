@@ -8,7 +8,7 @@ tags: ["kubernetes", "CKAD", "service", "cloud", "container"]
 summary: "In the CKAD Exam, time is key. A quick and effective way to confirm that your pod or service is responding correctly is by using a temporary container for testing. Here's how"
 
 cover:
-  image: "/posts/2022/ckad-tip-temporary-container/images/1.jpeg"
+  image: "/posts/2022/ckad-tip-temporary-container/images/image.png"
   alt: "CKAD Exam Tip: Use Temporary Containers to Validate Deployments"
 
 images:
