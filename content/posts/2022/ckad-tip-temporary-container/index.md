@@ -16,11 +16,6 @@ images:
   - "./images/2.png"
 ---
 
-> **TL;DR**  
-> `kubectl run tmp --image nginx --rm -i --restart=Never -- curl '$IP:$PORT'`
-
----
-
 ## Step 1: Deploy a simple application: Nginx
 
 Let’s deploy nginx. To do so, run these two commands:

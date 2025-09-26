@@ -15,10 +15,6 @@ cover:
   hidden: false # only hide on current single page
 ---
 
-> **TL;DR**  
-> Labels are **identifying** information intended to be read by Kubernetes.  
-> Annotations are **non-identifying** information intended to be read by humans and third party applications.
-
 ## Label: what is it, and what is it used for?
 
 Let’s look at the official definition:

@@ -15,9 +15,6 @@ images:
   - "/posts/2022/aws-profile-explained/images/image.png"
 ---
 
-> **TL;DR**  
-> Profiles simplify managing multiple AWS accounts by removing the need to re-enter credentials.
-
 ## The What
 
 In the Amazon Web Services (AWS) environment, a profile is a **named set of credentials and other configuration details** that can be used to access AWS services.

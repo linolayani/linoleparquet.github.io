@@ -5,15 +5,12 @@ date:
 lastmod: 2025-01-11T18:35:02.510Z
 tags: [Kubernetes, Secret, Reloader, EKS]
 draft: false
-summary: Stop wasting time on manual pod restarts. Use Reloader to keep mounted Kubernetes secrets always up to date.
+summary: Stop wasting time on manual pod restarts. Use Reloader to keep mounted secrets up to date.
 
 cover:
   image: "/posts/2025/kubernetes-secret-reloader/images/image.png"
   alt: "Kubernetes Secret Reloader"
 ---
-
-> **TLDR;**  
-> **Reloader** automatically restart pods whenever mounted secrets are updated.
 
 ## The secret ingestion workflow
 

@@ -11,14 +11,6 @@ cover:
   alt: "Welcome to git hell. Make yourself a home."
 ---
 
-> **TL;DR**
->
-> - `git status` -> what is going on.
-> - `git reset HEAD^` -> rollback the latest commit, locally.
-> - `git reset $hash` -> rollback to the specified commit.
-> - `git reflog` -> time machine for Git.
-> - [Oh Shit, Git!?!](https://ohshitgit.com/) -> ultimate guide for Git disasters.
-
 ## We've all been there
 
 <!-- > _His palms are sweaty, staring at this git history,_ > _PR is not ready, code is spaghetti_
