@@ -1,10 +1,10 @@
 ---
-title: Help me escape Git Hell
+title: Escaping the Git Abyss
 date:
 lastmod: 2024-04-20T13:19:15-06:00
 draft: false
 tags: ["git", "devops"]
-summary: "Stuck in Git hell? We’ve all been there. Luckily, commands exists to get us out."
+summary: "Stuck in Git hell? We’ve all been there."
 
 cover:
   image: "/posts/2024/rewrite-history-git/this-is-fine.png"
@@ -17,22 +17,42 @@ cover:
 >
 > - Eminem, maybe -->
 
-Getting stuck in a git hell is **part of the developer experience**. This is how we, developers, grow.
-Maybe you deleted the wrong file, a merge went south, or you ended up in some obscure detached state.
+Git is a wonderful, life-saving tool. It's the defacto, modern versioning solution used across the industry. Although it's well-known and well-adopted, there's still a learning curve. And most of us had to learn it the hard way.
+Maybe you deleted a file you weren't supposed to delete. Maybe you got distracted during a merge state. And you end up in an obscure, unknown detached state.
 
-When a senior dev is nearby, you lean on them. But when you’re on your own, **what do you do?**
+Now, you're there. **What do you do ?**
 
-## Git status
+## But where are you exactly ?
 
-`git status` is one of the most useful, yet underappreciated, commands in Git.
+Before diving into complex git commands, first step is about assessing your current state. There's multiples ways to do so. Some people know they way around advanced UI tools and integrations. For my part, I prefer to stick to the basic, and rely on the git CLI.
 
-It show the **state of your working directory**: which files are modified, whether you're mid-rebase, or the working directory is clean. When in doubt, run it. It’s your first line of defense.
+`git status` is our best friend. It displays the state of the working directory. It let you see which changes have been staged, which haven't, and which files aren't being tracked by the Git. It also inform you if you're mid-rebase.
+
+```bash
+lino@Lino-Layanis-Mac linoleparquet.github.io % git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   content/posts/2024/rewrite-history-git/index.md
+        deleted:    content/posts/2025/issue-datadog-argocd/index.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        content/posts/2025/helm-randAlphaNum-argocd/
+        content/posts/2025/kubernetes-anti-patterns/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
 
 ## Git reflog
 
-Meet `git reflog`. It had saved me out more times than I care to admit, and I bet it'll rescue you too.
+Meet `git reflog`. It's the best place to go when all hope is lost. It had saved me out more times than I care to admit.
 
-`git reflog` is **git’s time machine**: it records every move your HEAD makes: commits, checkouts, rebases, even the mistakes.  
+reflog stands for reference logs. It records updates to branch tips (ie `HEAD`, or `master`), along with a timestamp. It's the backbone of others git commands that you might already know, such as `git checkout` or `git reset`.
+
 When you lose work, or a branch goes missing, `git reflog` is how you time-travel back and recover it. It has been proven useful when deleting a local branch too soon.
 
 Here's how to access the reflog:
@@ -78,5 +98,4 @@ Got check it out. It gives great one liners for common git situations.
 
 ## Final Thoughts
 
-Git hell is inevitable. These commands won’t solve every Git nightmare, nor will Oh Shit Git.
-Still, they cover the vast majority of real-world problems, and once you’re comfortable with them, you’ll never feel completely lost in Git again.
+Git ease our developers lives in numerous ways. It's a well designed, essential tool for modern development. This blog post is only the starting point. I encourage you to go a step further in your git mastery journey. Searching, tinkering and often pays off.
