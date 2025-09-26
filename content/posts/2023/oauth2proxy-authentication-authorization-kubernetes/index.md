@@ -8,11 +8,11 @@ tags: ["kubernetes", "oauth2proxy", "authentication", "authorization"]
 summary: ""
 
 cover:
-  image: "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/1.png"
-  alt: "Implementing authentication and authorization for a Kubernetes application — the easy way"
+  image: "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/image.png"
+  alt: "Kubernetes: OAuth2Proxy "
 
 images:
-  - "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/1.png"
+  - "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/image.png"
   - "/posts/2023/oauth2proxy-authentication-authorization-kubernetes/images/2.png"
 ---
 
