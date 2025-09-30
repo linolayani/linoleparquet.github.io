@@ -1,12 +1,35 @@
 ---
-title: "Issue #1: Datadog operator randomly restarts"
+title: "What I learnt about ArgoCD, AutoSync, GitOPs and Helm"
 author: "Lino Layani"
 date:
 lastmod: 2025-01-11T18:35:02.510Z
-tags: ["Datadog", "ArgoCD", "Infrastructure as code", "IaC", "EKS"]
+tags: ["Datadog", "ArgoCD", "Helm", "Infrastructure as code", "IaC", "EKS"]
 draft: true
 summary: ""
 ---
+
+## Context
+
+We are using ArgoCD as our GitOps deployment solution.
+
+We deploy our business and addons application with Argo. Datadog is our observability solution, so we deploy
+
+It happened during our early phase of adopting EKS. ArgoCD is our GitOps solution. We follow a monorepo GitOps strategy. Applications deployed on clusters, both business and addons applications, are defined in this unique repo. It get updated quite often, as CIs from various projects update it each time a new version of an application is deployed on staging, uat, or production.  
+In this setup, we observe in our applications logs that traces are dropping. Upon investigation, we find out that this is due to the fact that datadog agents, installed as a deamonset, keep on restarting.  
+Now the question becomes, why is it starting ?
+
+## The quest
+
+Luckily, datadog is a paid product, and we have access to their support team. I open a ticket. They have been proven useful in other cases: not this time. After exposing my case, my interlocutor ask me to send flare, and another set of flare, and again another set of flare.
+
+# The solution
+
+https://github.com/DataDog/helm-charts/blob/867be0ef99d33da65a06f1fa665e0e61b873cb9e/charts/datadog/templates/secret-cluster-agent-token.yaml#L17
+data:
+{{ if .Values.clusterAgent.token -}}
+token: {{ .Values.clusterAgent.token | b64enc | quote }}
+{{ else -}}
+token: {{ randAlphaNum 32 | b64enc | quote }}
 
 ## Context
 

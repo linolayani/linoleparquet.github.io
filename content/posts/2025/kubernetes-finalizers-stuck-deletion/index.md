@@ -11,6 +11,24 @@ summary: ""
 #   alt: "Kubernetes Secret Reloader"
 ---
 
+## Context
+
+One valuable project for us is the ability to create complete, ephemeral environment, that can be provisioned and destroyed on the spot. It's a large and tedious project, because it the entirety of our infrastructure: load balancer, kubernetes clusters, s3 buckets, databases, DNS records, and so on.
+
+"A journey of a thousand miles begins with a single step" said Confucious. And if Confucius had been a software engineer working in my company, he would probably have said something along the lines of "A journey to reliabable provisioning of ephemeral environments begins with reliable provisioning of kubernetes cluster". Let's follow software engineer Confucious advice.
+
+We use ArgoCD as the backbone of our GitOps solution. We follow the App-of-app pattern. Speaking with fellow engineers, I realize everyone has a slightly different definition of this term. Let me introduce what app-of-apps means to us.
+
+## Our app of apps
+
+In our world, an app of apps in a helm chart. It contains templated Argo applications, and raw resources necessary to the cluster bootstrapping: RBAC objects, StorageClass definition, external secrets's ClusterSecretStore, and so on.  
+We distinguish 2 types of Argo Applications:
+
+- addons, consisting of workload extending Kubernetes capabilities, mostly open source applications
+- business, consisting of our in-house solutions
+
+## Difference between ApplicationSet and Application definition
+
 ## Resource stuck in deletion
 
 A while back, I encountered a situation that got me freezing. A resource stuck in deletion. In my case it was an ArgoCD application, but for the sake of simplicity, I'll illustrate with a simple pod.
